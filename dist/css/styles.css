@@ -1,4 +1,18 @@
 @charset "UTF-8";
+
+:root{
+  --bg:#0b1220;
+  --bg2:#0f172a;
+  --text:#e5e7eb;
+  --purple:#6d28d9;
+  --green:#16a34a;
+  --orange:#f97316;
+}
+
+body{
+  background: linear-gradient(180deg, var(--bg), var(--bg2));
+  color: var(--text);
+}
 /*!
 * Start Bootstrap - Agency v7.0.12 (https://startbootstrap.com/theme/agency)
 * Copyright 2013-2023 Start Bootstrap
