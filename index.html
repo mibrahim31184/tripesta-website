@@ -6,22 +6,18 @@
     <title>Tripesta Travels | Explore The World</title>
     <meta name="description" content="Tripesta Travels - Flights, Hotels, Visa, Packages & Tours." />
 
-    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800&display=swap"
       rel="stylesheet"
     />
 
     <!-- Font Awesome -->
-    <script
-      src="https://kit.fontawesome.com/a2e0e6ad2a.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/a2e0e6ad2a.js" crossorigin="anonymous"></script>
 
     <!-- Bootstrap CSS -->
     <link
@@ -33,38 +29,37 @@
     <link href="css/styles.css" rel="stylesheet" />
   </head>
 
-  <body id="page-top">
+  <body id="page-top" data-lang="en">
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top glass-nav" id="mainNav">
       <div class="container">
         <a class="navbar-brand d-flex align-items-center gap-2" href="#page-top">
-          <!-- لو عندك لوجو PNG حطه هنا -->
           <img src="assets/img/logo.png" alt="Tripesta" class="brand-logo" onerror="this.style.display='none'" />
           <span class="brand-name">Tripesta</span>
         </a>
 
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarResponsive"
-          aria-controls="navbarResponsive"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ms-auto py-2 py-lg-0 align-items-lg-center gap-lg-2">
-            <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-            <li class="nav-item"><a class="nav-link" href="#packages">Packages</a></li>
-            <li class="nav-item"><a class="nav-link" href="#hotels">Hotels</a></li>
-            <li class="nav-item"><a class="nav-link" href="#visa">Visa</a></li>
-            <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
-            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="#services" data-i18n="nav.services">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="#packages" data-i18n="nav.packages">Packages</a></li>
+            <li class="nav-item"><a class="nav-link" href="#hotels" data-i18n="nav.hotels">Hotels</a></li>
+            <li class="nav-item"><a class="nav-link" href="#visa" data-i18n="nav.visa">Visa</a></li>
+            <li class="nav-item"><a class="nav-link" href="#testimonials" data-i18n="nav.reviews">Reviews</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact" data-i18n="nav.contact">Contact</a></li>
+
+            <!-- Language Toggle -->
             <li class="nav-item">
-              <a class="btn btn-brand ms-lg-2" href="#contact">
+              <button class="btn btn-ghost btn-sm lang-btn" id="langToggle" type="button">
+                <span class="lang-en">AR</span><span class="lang-ar">EN</span>
+              </button>
+            </li>
+
+            <li class="nav-item">
+              <a class="btn btn-brand ms-lg-1" href="#contact" data-i18n="nav.book">
                 Book Now <i class="fa-solid fa-arrow-right ms-1"></i>
               </a>
             </li>
@@ -76,166 +71,137 @@
     <!-- HERO -->
     <header class="hero">
       <div class="hero-overlay"></div>
-
-      <!-- خلفية: حط صورتك هنا -->
-      <div
-        class="hero-bg"
-        style="background-image:url('assets/img/hero-travel.png');"
-      ></div>
+      <div class="hero-bg" style="background-image:url('assets/img/hero-travel.png');"></div>
 
       <div class="container hero-content">
         <div class="row align-items-center g-5">
           <div class="col-lg-7">
             <div class="badge-pill mb-3">
               <i class="fa-solid fa-plane-departure me-2"></i>
-              Your Complete Travel & Visa Partner
+              <span data-i18n="hero.badge">Your Complete Travel & Visa Partner</span>
             </div>
 
             <h1 class="hero-title">
-              Explore the World with <span class="grad-text">TRIPESTA</span>
+              <span data-i18n="hero.title1">Explore the World with</span>
+              <span class="grad-text"> TRIPESTA</span>
             </h1>
 
-            <p class="hero-sub">
+            <p class="hero-sub" data-i18n="hero.sub">
               Flights • Hotels • Visa • Packages • Tours — curated deals, fast support, and smooth booking.
             </p>
 
             <div class="d-flex flex-wrap gap-2 mt-4">
               <a class="btn btn-brand btn-lg" href="#packages">
-                View Packages <i class="fa-solid fa-suitcase-rolling ms-2"></i>
+                <span data-i18n="hero.cta1">View Packages</span>
+                <i class="fa-solid fa-suitcase-rolling ms-2"></i>
               </a>
+
               <a class="btn btn-ghost btn-lg" href="#contact">
-                Get a Quote <i class="fa-regular fa-paper-plane ms-2"></i>
+                <span data-i18n="hero.cta2">Get a Quote</span>
+                <i class="fa-regular fa-paper-plane ms-2"></i>
               </a>
             </div>
 
             <div class="hero-stats mt-4">
               <div class="stat">
                 <div class="stat-num">24/7</div>
-                <div class="stat-text">Support</div>
+                <div class="stat-text" data-i18n="hero.stat1">Support</div>
               </div>
               <div class="stat">
-                <div class="stat-num">Fast</div>
-                <div class="stat-text">Visa Processing</div>
+                <div class="stat-num" data-i18n="hero.stat2a">Fast</div>
+                <div class="stat-text" data-i18n="hero.stat2b">Visa Processing</div>
               </div>
               <div class="stat">
-                <div class="stat-num">Best</div>
-                <div class="stat-text">Travel Deals</div>
+                <div class="stat-num" data-i18n="hero.stat3a">Best</div>
+                <div class="stat-text" data-i18n="hero.stat3b">Travel Deals</div>
               </div>
             </div>
           </div>
 
           <div class="col-lg-5">
-            <!-- Quote Card -->
             <div class="card glass-card p-4">
-              <h5 class="mb-2">Quick Inquiry</h5>
-              <p class="small text-muted mb-3">Tell us your destination and we’ll send offers.</p>
+              <h5 class="mb-2" data-i18n="quick.title">Quick Inquiry</h5>
+              <p class="small text-muted mb-3" data-i18n="quick.sub">Tell us your destination and we’ll send offers.</p>
 
-              <form class="row g-2" action="mailto:info@tripestatravels.com" method="post" enctype="text/plain">
+              <form action="mailto:info@tripestatravels.com" method="post" enctype="text/plain" class="row g-2">
                 <div class="col-12">
-                  <input class="form-control form-control-lg" type="text" name="Name" placeholder="Your Name" required />
+                  <input class="form-control form-control-lg" type="text" name="Name" placeholder="Your Name" required data-i18n-ph="ph.name"/>
                 </div>
                 <div class="col-12">
-                  <input class="form-control form-control-lg" type="email" name="Email" placeholder="Email" required />
+                  <input class="form-control form-control-lg" type="email" name="Email" placeholder="Email" required data-i18n-ph="ph.email"/>
                 </div>
                 <div class="col-12">
-                  <input class="form-control form-control-lg" type="text" name="Destination" placeholder="Destination (e.g., Georgia / Maldives)" />
+                  <input class="form-control form-control-lg" type="text" name="Destination" placeholder="Destination (e.g., Georgia / Maldives)" data-i18n-ph="ph.destination"/>
                 </div>
                 <div class="col-12">
                   <select class="form-select form-select-lg" name="Service">
-                    <option value="Packages">Packages</option>
-                    <option value="Hotels">Hotels</option>
-                    <option value="Flights">Flights</option>
-                    <option value="Visa">Visa</option>
+                    <option value="Packages" data-i18n="service.packages">Packages</option>
+                    <option value="Hotels" data-i18n="service.hotels">Hotels</option>
+                    <option value="Flights" data-i18n="service.flights">Flights</option>
+                    <option value="Visa" data-i18n="service.visa">Visa</option>
                   </select>
                 </div>
                 <div class="col-12 mt-2">
                   <button class="btn btn-brand w-100 btn-lg" type="submit">
-                    Send Request <i class="fa-regular fa-paper-plane ms-2"></i>
+                    <span data-i18n="quick.send">Send Request</span>
+                    <i class="fa-regular fa-paper-plane ms-2"></i>
                   </button>
                 </div>
+
                 <div class="col-12">
                   <div class="small mt-2 text-muted">
-                    Or WhatsApp: <a class="link-soft" href="https://wa.me/XXXXXXXXXXX" target="_blank" rel="noopener">Click here</a>
+                    <span data-i18n="quick.or">Or WhatsApp:</span>
+                    <a class="link-soft" href="https://wa.me/971521774320" target="_blank" rel="noopener">+971 52 177 4320</a>
                   </div>
                 </div>
               </form>
             </div>
-            <!-- /Quote Card -->
           </div>
+
         </div>
       </div>
     </header>
-
-    <!-- TRUST STRIP -->
-    <section class="trust-strip">
-      <div class="container">
-        <div class="row g-3 text-center">
-          <div class="col-6 col-lg-3">
-            <div class="trust-item">
-              <i class="fa-solid fa-shield-halved"></i>
-              <span>Secure Booking</span>
-            </div>
-          </div>
-          <div class="col-6 col-lg-3">
-            <div class="trust-item">
-              <i class="fa-solid fa-bolt"></i>
-              <span>Fast Response</span>
-            </div>
-          </div>
-          <div class="col-6 col-lg-3">
-            <div class="trust-item">
-              <i class="fa-solid fa-tag"></i>
-              <span>Best Rates</span>
-            </div>
-          </div>
-          <div class="col-6 col-lg-3">
-            <div class="trust-item">
-              <i class="fa-solid fa-headset"></i>
-              <span>Real Support</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- SERVICES -->
     <section class="section" id="services">
       <div class="container">
         <div class="section-head text-center">
-          <h2 class="section-title">Services</h2>
-          <p class="section-sub">Everything you need — flights, hotels, visa & complete travel planning.</p>
+          <h2 class="section-title" data-i18n="services.title">Services</h2>
+          <p class="section-sub" data-i18n="services.sub">
+            Everything you need — flights, hotels, visa & complete travel planning.
+          </p>
         </div>
 
         <div class="row g-4">
           <div class="col-md-6 col-lg-3">
             <div class="feature-card">
               <div class="icon-bubble"><i class="fa-solid fa-plane"></i></div>
-              <h5>Flights</h5>
-              <p>Best options, smart routing, and flexible tickets.</p>
+              <h5 data-i18n="services.flights">Flights</h5>
+              <p data-i18n="services.flightsP">Best options, smart routing, and flexible tickets.</p>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-3">
             <div class="feature-card">
               <div class="icon-bubble"><i class="fa-solid fa-hotel"></i></div>
-              <h5>Hotels</h5>
-              <p>Great stays — family, luxury, or budget-friendly.</p>
+              <h5 data-i18n="services.hotels">Hotels</h5>
+              <p data-i18n="services.hotelsP">Great stays — family, luxury, or budget-friendly.</p>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-3">
             <div class="feature-card">
               <div class="icon-bubble"><i class="fa-solid fa-passport"></i></div>
-              <h5>Visa</h5>
-              <p>Fast visa assistance with clear requirements and follow-up.</p>
+              <h5 data-i18n="services.visa">Visa</h5>
+              <p data-i18n="services.visaP">Fast visa assistance with clear requirements and follow-up.</p>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-3">
             <div class="feature-card">
               <div class="icon-bubble"><i class="fa-solid fa-suitcase-rolling"></i></div>
-              <h5>Packages</h5>
-              <p>Ready-made packages and custom itineraries.</p>
+              <h5 data-i18n="services.packages">Packages</h5>
+              <p data-i18n="services.packagesP">Ready-made packages and custom itineraries.</p>
             </div>
           </div>
         </div>
@@ -246,68 +212,133 @@
     <section class="section section-dark" id="packages">
       <div class="container">
         <div class="section-head text-center">
-          <h2 class="section-title">Popular Packages</h2>
-          <p class="section-sub">Handpicked trips — tell us what you like and we’ll tailor it.</p>
+          <h2 class="section-title" data-i18n="packages.title">Popular Packages</h2>
+          <p class="section-sub" data-i18n="packages.sub">
+            Georgia, Turkey, Maldives, Azerbaijan, Thailand, and Saudi (Makkah & Madinah).
+          </p>
         </div>
 
         <div class="row g-4">
+          <!-- Georgia -->
           <div class="col-md-6 col-lg-4">
             <div class="deal-card">
               <div class="deal-img" style="background-image:url('assets/img/deals/georgia.jpg');"></div>
               <div class="deal-body">
                 <div class="deal-top">
-                  <h5>Georgia Escape</h5>
-                  <span class="chip">5–7 Nights</span>
+                  <h5 data-i18n="pkg.georgia">Georgia Escape</h5>
+                  <span class="chip" data-i18n="pkg.nights57">5–7 Nights</span>
                 </div>
-                <p class="mb-3">Tbilisi + optional Gudauri/Bakuriani • Hotel + Tours • Airport pickup.</p>
+                <p class="mb-3" data-i18n="pkg.georgiaP">Tbilisi + optional Gudauri/Bakuriani • Hotel + Tours • Airport pickup.</p>
                 <div class="deal-meta">
-                  <span><i class="fa-solid fa-location-dot me-1"></i>Tbilisi</span>
+                  <span><i class="fa-solid fa-location-dot me-1"></i>Georgia</span>
                   <span><i class="fa-solid fa-star me-1"></i>4.8</span>
                 </div>
-                <a class="btn btn-brand w-100 mt-3" href="#contact">Request Offer</a>
+                <a class="btn btn-brand w-100 mt-3" href="#contact" data-i18n="pkg.cta">Request Offer</a>
               </div>
             </div>
           </div>
 
-          <div class="col-md-6 col-lg-4">
-            <div class="deal-card">
-              <div class="deal-img" style="background-image:url('assets/img/deals/maldives.jpg');"></div>
-              <div class="deal-body">
-                <div class="deal-top">
-                  <h5>Maldives</h5>
-                  <span class="chip">4–6 Nights</span>
-                </div>
-                <p class="mb-3">Resort stays • Honeymoon setup • Transfers included (upon request).</p>
-                <div class="deal-meta">
-                  <span><i class="fa-solid fa-location-dot me-1"></i>Maldives</span>
-                  <span><i class="fa-solid fa-star me-1"></i>4.9</span>
-                </div>
-                <a class="btn btn-brand w-100 mt-3" href="#contact">Request Offer</a>
-              </div>
-            </div>
-          </div>
-
+          <!-- Turkey -->
           <div class="col-md-6 col-lg-4">
             <div class="deal-card">
               <div class="deal-img" style="background-image:url('assets/img/deals/turkey.jpg');"></div>
               <div class="deal-body">
                 <div class="deal-top">
-                  <h5>Turkey</h5>
-                  <span class="chip">5–8 Nights</span>
+                  <h5 data-i18n="pkg.turkey">Turkey Highlights</h5>
+                  <span class="chip" data-i18n="pkg.nights58">5–8 Nights</span>
                 </div>
-                <p class="mb-3">Istanbul + Bursa/Sapanca • City tours • Flexible hotel options.</p>
+                <p class="mb-3" data-i18n="pkg.turkeyP">Istanbul + Bursa/Sapanca • City tours • Flexible hotel options.</p>
                 <div class="deal-meta">
-                  <span><i class="fa-solid fa-location-dot me-1"></i>Istanbul</span>
+                  <span><i class="fa-solid fa-location-dot me-1"></i>Turkey</span>
                   <span><i class="fa-solid fa-star me-1"></i>4.7</span>
                 </div>
-                <a class="btn btn-brand w-100 mt-3" href="#contact">Request Offer</a>
+                <a class="btn btn-brand w-100 mt-3" href="#contact" data-i18n="pkg.cta">Request Offer</a>
               </div>
             </div>
           </div>
+
+          <!-- Maldives -->
+          <div class="col-md-6 col-lg-4">
+            <div class="deal-card">
+              <div class="deal-img" style="background-image:url('assets/img/deals/maldives.jpg');"></div>
+              <div class="deal-body">
+                <div class="deal-top">
+                  <h5 data-i18n="pkg.maldives">Maldives</h5>
+                  <span class="chip" data-i18n="pkg.nights46">4–6 Nights</span>
+                </div>
+                <p class="mb-3" data-i18n="pkg.maldivesP">Resort stays • Honeymoon setup • Transfers upon request.</p>
+                <div class="deal-meta">
+                  <span><i class="fa-solid fa-location-dot me-1"></i>Maldives</span>
+                  <span><i class="fa-solid fa-star me-1"></i>4.9</span>
+                </div>
+                <a class="btn btn-brand w-100 mt-3" href="#contact" data-i18n="pkg.cta">Request Offer</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Azerbaijan -->
+          <div class="col-md-6 col-lg-4">
+            <div class="deal-card">
+              <div class="deal-img" style="background-image:url('assets/img/deals/azerbaijan.jpg');"></div>
+              <div class="deal-body">
+                <div class="deal-top">
+                  <h5 data-i18n="pkg.azer">Azerbaijan (Baku)</h5>
+                  <span class="chip" data-i18n="pkg.nights45">4–5 Nights</span>
+                </div>
+                <p class="mb-3" data-i18n="pkg.azerP">Baku city tour • Shopping & old town • Optional Gabala day trip.</p>
+                <div class="deal-meta">
+                  <span><i class="fa-solid fa-location-dot me-1"></i>Azerbaijan</span>
+                  <span><i class="fa-solid fa-star me-1"></i>4.6</span>
+                </div>
+                <a class="btn btn-brand w-100 mt-3" href="#contact" data-i18n="pkg.cta">Request Offer</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Thailand -->
+          <div class="col-md-6 col-lg-4">
+            <div class="deal-card">
+              <div class="deal-img" style="background-image:url('assets/img/deals/thailand.jpg');"></div>
+              <div class="deal-body">
+                <div class="deal-top">
+                  <h5 data-i18n="pkg.thai">Thailand</h5>
+                  <span class="chip" data-i18n="pkg.nights69">6–9 Nights</span>
+                </div>
+                <p class="mb-3" data-i18n="pkg.thaiP">Bangkok + Phuket/Pattaya • Island tours • Family-friendly options.</p>
+                <div class="deal-meta">
+                  <span><i class="fa-solid fa-location-dot me-1"></i>Thailand</span>
+                  <span><i class="fa-solid fa-star me-1"></i>4.7</span>
+                </div>
+                <a class="btn btn-brand w-100 mt-3" href="#contact" data-i18n="pkg.cta">Request Offer</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Saudi (Umrah) -->
+          <div class="col-md-6 col-lg-4">
+            <div class="deal-card">
+              <div class="deal-img" style="background-image:url('assets/img/deals/saudi.jpg');"></div>
+              <div class="deal-body">
+                <div class="deal-top">
+                  <h5 data-i18n="pkg.saudi">Saudi (Umrah)</h5>
+                  <span class="chip" data-i18n="pkg.nights37">3–7 Nights</span>
+                </div>
+                <p class="mb-3" data-i18n="pkg.saudiP">Makkah & Madinah hotels • Transfers • Custom itinerary on request.</p>
+                <div class="deal-meta">
+                  <span><i class="fa-solid fa-location-dot me-1"></i>KSA</span>
+                  <span><i class="fa-solid fa-star me-1"></i>4.8</span>
+                </div>
+                <a class="btn btn-brand w-100 mt-3" href="#contact" data-i18n="pkg.cta">Request Offer</a>
+              </div>
+            </div>
+          </div>
+
         </div>
 
         <div class="text-center mt-4">
-          <a class="btn btn-ghost" href="#contact">Want a custom package? Get a Quote</a>
+          <a class="btn btn-ghost" href="https://wa.me/971521774320" target="_blank" rel="noopener" data-i18n="packages.whatsapp">
+            WhatsApp us to customize your package
+          </a>
         </div>
       </div>
     </section>
@@ -322,20 +353,20 @@
             </div>
           </div>
           <div class="col-lg-6">
-            <h2 class="section-title text-start">Hotels & Stays</h2>
-            <p class="section-sub text-start">
+            <h2 class="section-title text-start" data-i18n="hotels.title">Hotels & Stays</h2>
+            <p class="section-sub text-start" data-i18n="hotels.sub">
               Choose from top-rated hotels and apartments worldwide — family-friendly, luxury, or budget.
             </p>
 
             <ul class="checklist">
-              <li><i class="fa-solid fa-circle-check"></i> Best available deals & upgrades</li>
-              <li><i class="fa-solid fa-circle-check"></i> Flexible cancellation options</li>
-              <li><i class="fa-solid fa-circle-check"></i> Fast confirmation and support</li>
+              <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="hotels.c1">Best available deals & upgrades</span></li>
+              <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="hotels.c2">Flexible cancellation options</span></li>
+              <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="hotels.c3">Fast confirmation and support</span></li>
             </ul>
 
             <div class="d-flex gap-2 mt-3">
-              <a class="btn btn-brand" href="#contact">Ask for Hotel Offers</a>
-              <a class="btn btn-ghost" href="#packages">See Packages</a>
+              <a class="btn btn-brand" href="#contact" data-i18n="hotels.cta1">Ask for Hotel Offers</a>
+              <a class="btn btn-ghost" href="#packages" data-i18n="hotels.cta2">See Packages</a>
             </div>
           </div>
         </div>
@@ -352,8 +383,8 @@
             </div>
           </div>
           <div class="col-lg-6 order-lg-1">
-            <h2 class="section-title text-start">Visa Assistance</h2>
-            <p class="section-sub text-start">
+            <h2 class="section-title text-start" data-i18n="visa.title">Visa Assistance</h2>
+            <p class="section-sub text-start" data-i18n="visa.sub">
               Clear requirements, document checklist, and follow-up until you get the result.
             </p>
 
@@ -362,8 +393,8 @@
                 <div class="mini-card">
                   <i class="fa-solid fa-list-check"></i>
                   <div>
-                    <h6 class="mb-1">Checklist</h6>
-                    <p class="mb-0">We prepare the requirements per country.</p>
+                    <h6 class="mb-1" data-i18n="visa.m1t">Checklist</h6>
+                    <p class="mb-0" data-i18n="visa.m1p">We prepare requirements per country.</p>
                   </div>
                 </div>
               </div>
@@ -371,8 +402,8 @@
                 <div class="mini-card">
                   <i class="fa-solid fa-clock"></i>
                   <div>
-                    <h6 class="mb-1">Fast Process</h6>
-                    <p class="mb-0">We speed up where possible.</p>
+                    <h6 class="mb-1" data-i18n="visa.m2t">Fast Process</h6>
+                    <p class="mb-0" data-i18n="visa.m2p">We speed up where possible.</p>
                   </div>
                 </div>
               </div>
@@ -380,8 +411,8 @@
                 <div class="mini-card">
                   <i class="fa-solid fa-user-shield"></i>
                   <div>
-                    <h6 class="mb-1">Guidance</h6>
-                    <p class="mb-0">Avoid common rejection mistakes.</p>
+                    <h6 class="mb-1" data-i18n="visa.m3t">Guidance</h6>
+                    <p class="mb-0" data-i18n="visa.m3p">Avoid common rejection mistakes.</p>
                   </div>
                 </div>
               </div>
@@ -389,15 +420,15 @@
                 <div class="mini-card">
                   <i class="fa-solid fa-headset"></i>
                   <div>
-                    <h6 class="mb-1">Support</h6>
-                    <p class="mb-0">Quick replies on WhatsApp/Email.</p>
+                    <h6 class="mb-1" data-i18n="visa.m4t">Support</h6>
+                    <p class="mb-0" data-i18n="visa.m4p">Fast replies on WhatsApp/Email.</p>
                   </div>
                 </div>
               </div>
             </div>
 
             <div class="mt-3">
-              <a class="btn btn-brand" href="#contact">Start Visa Request</a>
+              <a class="btn btn-brand" href="#contact" data-i18n="visa.cta">Start Visa Request</a>
             </div>
           </div>
         </div>
@@ -408,8 +439,8 @@
     <section class="section" id="testimonials">
       <div class="container">
         <div class="section-head text-center">
-          <h2 class="section-title">Customer Reviews</h2>
-          <p class="section-sub">Real service, real support — we care about your trip.</p>
+          <h2 class="section-title" data-i18n="reviews.title">Customer Reviews</h2>
+          <p class="section-sub" data-i18n="reviews.sub">Real service, real support — we care about your trip.</p>
         </div>
 
         <div class="row g-4">
@@ -418,15 +449,10 @@
               <div class="stars">
                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
               </div>
-              <p class="mb-3">
-                “Super fast response and very organized package. Everything was smooth.”
-              </p>
+              <p class="mb-3" data-i18n="reviews.r1">“Super fast response and very organized package. Everything was smooth.”</p>
               <div class="reviewer">
                 <div class="avatar">A</div>
-                <div>
-                  <div class="name">Ahmed</div>
-                  <div class="small text-muted">Dubai</div>
-                </div>
+                <div><div class="name">Ahmed</div><div class="small text-muted">UAE</div></div>
               </div>
             </div>
           </div>
@@ -436,15 +462,10 @@
               <div class="stars">
                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
               </div>
-              <p class="mb-3">
-                “Hotel options were excellent. They helped us pick the best location.”
-              </p>
+              <p class="mb-3" data-i18n="reviews.r2">“Hotel options were excellent. They helped us pick the best location.”</p>
               <div class="reviewer">
                 <div class="avatar">R</div>
-                <div>
-                  <div class="name">Razan</div>
-                  <div class="small text-muted">Sharjah</div>
-                </div>
+                <div><div class="name">Razan</div><div class="small text-muted">Sharjah</div></div>
               </div>
             </div>
           </div>
@@ -454,20 +475,14 @@
               <div class="stars">
                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
               </div>
-              <p class="mb-3">
-                “Visa checklist saved time. They followed up until it was done.”
-              </p>
+              <p class="mb-3" data-i18n="reviews.r3">“Visa checklist saved time. They followed up until it was done.”</p>
               <div class="reviewer">
-                <div class="avatar">M</div>
-                <div>
-                  <div class="name">Mohamed</div>
-                  <div class="small text-muted">Abu Dhabi</div>
-                </div>
+                <div class="avatar">T</div>
+                <div><div class="name">Tripesta Client</div><div class="small text-muted">UAE</div></div>
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -475,36 +490,40 @@
     <section class="section section-dark" id="contact">
       <div class="container">
         <div class="section-head text-center">
-          <h2 class="section-title">Contact Us</h2>
-          <p class="section-sub">Send your request — we reply fast with offers.</p>
+          <h2 class="section-title" data-i18n="contact.title">Contact Us</h2>
+          <p class="section-sub" data-i18n="contact.sub">Send your request — we reply fast with offers.</p>
         </div>
 
         <div class="row g-4">
           <div class="col-lg-5">
             <div class="contact-card">
-              <h5 class="mb-3">Tripesta Travels</h5>
+              <h5 class="mb-3" data-i18n="contact.brand">Tripesta Travels</h5>
 
               <div class="contact-item">
                 <i class="fa-solid fa-phone"></i>
                 <div>
-                  <div class="label">Phone / WhatsApp</div>
-                  <div class="value"><a class="link-soft" href="https://wa.me/XXXXXXXXXXX" target="_blank" rel="noopener">+971 XX XXX XXXX</a></div>
+                  <div class="label" data-i18n="contact.whLabel">Phone / WhatsApp</div>
+                  <div class="value">
+                    <a class="link-soft" href="https://wa.me/971521774320" target="_blank" rel="noopener">+971 52 177 4320</a>
+                  </div>
                 </div>
               </div>
 
               <div class="contact-item">
                 <i class="fa-solid fa-envelope"></i>
                 <div>
-                  <div class="label">Email</div>
-                  <div class="value"><a class="link-soft" href="mailto:info@tripestatravels.com">info@tripestatravels.com</a></div>
+                  <div class="label" data-i18n="contact.emailLabel">Email</div>
+                  <div class="value">
+                    <a class="link-soft" href="mailto:info@tripestatravels.com">info@tripestatravels.com</a>
+                  </div>
                 </div>
               </div>
 
               <div class="contact-item">
                 <i class="fa-solid fa-location-dot"></i>
                 <div>
-                  <div class="label">Location</div>
-                  <div class="value">UAE</div>
+                  <div class="label" data-i18n="contact.locLabel">Location</div>
+                  <div class="value" data-i18n="contact.locVal">UAE</div>
                 </div>
               </div>
 
@@ -513,42 +532,49 @@
                 <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                 <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
               </div>
+
+              <div class="mt-4">
+                <a class="btn btn-brand w-100" href="https://wa.me/971521774320" target="_blank" rel="noopener">
+                  <span data-i18n="contact.whCta">Chat on WhatsApp</span>
+                  <i class="fa-brands fa-whatsapp ms-2"></i>
+                </a>
+              </div>
             </div>
           </div>
 
           <div class="col-lg-7">
             <div class="contact-card">
-              <!-- ملاحظة: GitHub Pages مفيهوش backend، فده mailto -->
               <form action="mailto:info@tripestatravels.com" method="post" enctype="text/plain">
                 <div class="row g-3">
                   <div class="col-md-6">
-                    <input class="form-control form-control-lg" type="text" name="Name" placeholder="Your Name *" required />
+                    <input class="form-control form-control-lg" type="text" name="Name" placeholder="Your Name *" required data-i18n-ph="ph.name"/>
                   </div>
                   <div class="col-md-6">
-                    <input class="form-control form-control-lg" type="email" name="Email" placeholder="Your Email *" required />
+                    <input class="form-control form-control-lg" type="email" name="Email" placeholder="Your Email *" required data-i18n-ph="ph.email"/>
                   </div>
                   <div class="col-md-6">
-                    <input class="form-control form-control-lg" type="text" name="Phone" placeholder="Your Phone / WhatsApp" />
+                    <input class="form-control form-control-lg" type="text" name="Phone" placeholder="Your Phone / WhatsApp" data-i18n-ph="ph.phone"/>
                   </div>
                   <div class="col-md-6">
                     <select class="form-select form-select-lg" name="Service">
-                      <option value="Packages">Packages</option>
-                      <option value="Hotels">Hotels</option>
-                      <option value="Flights">Flights</option>
-                      <option value="Visa">Visa</option>
+                      <option value="Packages" data-i18n="service.packages">Packages</option>
+                      <option value="Hotels" data-i18n="service.hotels">Hotels</option>
+                      <option value="Flights" data-i18n="service.flights">Flights</option>
+                      <option value="Visa" data-i18n="service.visa">Visa</option>
                     </select>
                   </div>
                   <div class="col-12">
-                    <textarea class="form-control form-control-lg" rows="5" name="Message" placeholder="Your Message *" required></textarea>
+                    <textarea class="form-control form-control-lg" rows="5" name="Message" placeholder="Your Message *" required data-i18n-ph="ph.message"></textarea>
                   </div>
                   <div class="col-12">
                     <button class="btn btn-brand btn-lg w-100" type="submit">
-                      Send Message <i class="fa-regular fa-paper-plane ms-2"></i>
+                      <span data-i18n="contact.send">Send Message</span>
+                      <i class="fa-regular fa-paper-plane ms-2"></i>
                     </button>
                   </div>
                   <div class="col-12">
-                    <div class="small text-muted text-center">
-                      Tip: later we can connect a real form (Formspree / Netlify Forms) if you want.
+                    <div class="small text-muted text-center" data-i18n="contact.tip">
+                      Tip: We can connect a real form later (Formspree) without changing hosting.
                     </div>
                   </div>
                 </div>
@@ -560,10 +586,10 @@
         <div class="footer-bottom mt-5">
           <div class="container px-0">
             <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
-              <div class="small">© <span id="year"></span> Tripesta Travels. All rights reserved.</div>
+              <div class="small">© <span id="year"></span> Tripesta Travels. <span data-i18n="footer.rights">All rights reserved.</span></div>
               <div class="small d-flex gap-3">
-                <a class="link-soft" href="#">Privacy</a>
-                <a class="link-soft" href="#">Terms</a>
+                <a class="link-soft" href="#" data-i18n="footer.privacy">Privacy</a>
+                <a class="link-soft" href="#" data-i18n="footer.terms">Terms</a>
               </div>
             </div>
           </div>
@@ -575,11 +601,11 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Small JS -->
     <script>
+      // year
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      // Navbar shrink effect
+      // navbar shrink
       const nav = document.getElementById("mainNav");
       const onScroll = () => {
         if (window.scrollY > 20) nav.classList.add("scrolled");
@@ -587,6 +613,168 @@
       };
       window.addEventListener("scroll", onScroll);
       onScroll();
+
+      // i18n dictionary
+      const dict = {
+        en: {
+          "nav.services":"Services","nav.packages":"Packages","nav.hotels":"Hotels","nav.visa":"Visa","nav.reviews":"Reviews","nav.contact":"Contact","nav.book":"Book Now",
+          "hero.badge":"Your Complete Travel & Visa Partner",
+          "hero.title1":"Explore the World with",
+          "hero.sub":"Flights • Hotels • Visa • Packages • Tours — curated deals, fast support, and smooth booking.",
+          "hero.cta1":"View Packages","hero.cta2":"Get a Quote",
+          "hero.stat1":"Support","hero.stat2a":"Fast","hero.stat2b":"Visa Processing","hero.stat3a":"Best","hero.stat3b":"Travel Deals",
+
+          "quick.title":"Quick Inquiry","quick.sub":"Tell us your destination and we’ll send offers.","quick.send":"Send Request","quick.or":"Or WhatsApp:",
+          "services.title":"Services","services.sub":"Everything you need — flights, hotels, visa & complete travel planning.",
+          "services.flights":"Flights","services.flightsP":"Best options, smart routing, and flexible tickets.",
+          "services.hotels":"Hotels","services.hotelsP":"Great stays — family, luxury, or budget-friendly.",
+          "services.visa":"Visa","services.visaP":"Fast visa assistance with clear requirements and follow-up.",
+          "services.packages":"Packages","services.packagesP":"Ready-made packages and custom itineraries.",
+
+          "packages.title":"Popular Packages",
+          "packages.sub":"Georgia, Turkey, Maldives, Azerbaijan, Thailand, and Saudi (Makkah & Madinah).",
+          "packages.whatsapp":"WhatsApp us to customize your package",
+
+          "pkg.georgia":"Georgia Escape","pkg.georgiaP":"Tbilisi + optional Gudauri/Bakuriani • Hotel + Tours • Airport pickup.",
+          "pkg.turkey":"Turkey Highlights","pkg.turkeyP":"Istanbul + Bursa/Sapanca • City tours • Flexible hotel options.",
+          "pkg.maldives":"Maldives","pkg.maldivesP":"Resort stays • Honeymoon setup • Transfers upon request.",
+          "pkg.azer":"Azerbaijan (Baku)","pkg.azerP":"Baku city tour • Shopping & old town • Optional Gabala day trip.",
+          "pkg.thai":"Thailand","pkg.thaiP":"Bangkok + Phuket/Pattaya • Island tours • Family-friendly options.",
+          "pkg.saudi":"Saudi (Umrah)","pkg.saudiP":"Makkah & Madinah hotels • Transfers • Custom itinerary on request.",
+          "pkg.cta":"Request Offer",
+          "pkg.nights57":"5–7 Nights","pkg.nights58":"5–8 Nights","pkg.nights46":"4–6 Nights","pkg.nights45":"4–5 Nights","pkg.nights69":"6–9 Nights","pkg.nights37":"3–7 Nights",
+
+          "hotels.title":"Hotels & Stays",
+          "hotels.sub":"Choose from top-rated hotels and apartments worldwide — family-friendly, luxury, or budget.",
+          "hotels.c1":"Best available deals & upgrades","hotels.c2":"Flexible cancellation options","hotels.c3":"Fast confirmation and support",
+          "hotels.cta1":"Ask for Hotel Offers","hotels.cta2":"See Packages",
+
+          "visa.title":"Visa Assistance",
+          "visa.sub":"Clear requirements, document checklist, and follow-up until you get the result.",
+          "visa.m1t":"Checklist","visa.m1p":"We prepare requirements per country.",
+          "visa.m2t":"Fast Process","visa.m2p":"We speed up where possible.",
+          "visa.m3t":"Guidance","visa.m3p":"Avoid common rejection mistakes.",
+          "visa.m4t":"Support","visa.m4p":"Fast replies on WhatsApp/Email.",
+          "visa.cta":"Start Visa Request",
+
+          "reviews.title":"Customer Reviews","reviews.sub":"Real service, real support — we care about your trip.",
+          "reviews.r1":"“Super fast response and very organized package. Everything was smooth.”",
+          "reviews.r2":"“Hotel options were excellent. They helped us pick the best location.”",
+          "reviews.r3":"“Visa checklist saved time. They followed up until it was done.”",
+
+          "contact.title":"Contact Us","contact.sub":"Send your request — we reply fast with offers.",
+          "contact.brand":"Tripesta Travels",
+          "contact.whLabel":"Phone / WhatsApp","contact.emailLabel":"Email","contact.locLabel":"Location","contact.locVal":"UAE",
+          "contact.whCta":"Chat on WhatsApp","contact.send":"Send Message",
+          "contact.tip":"Tip: We can connect a real form later (Formspree) without changing hosting.",
+
+          "footer.rights":"All rights reserved.","footer.privacy":"Privacy","footer.terms":"Terms",
+
+          "service.packages":"Packages","service.hotels":"Hotels","service.flights":"Flights","service.visa":"Visa",
+
+          "ph.name":"Your Name *","ph.email":"Your Email *","ph.destination":"Destination (e.g., Georgia / Maldives)",
+          "ph.phone":"Your Phone / WhatsApp","ph.message":"Your Message *"
+        },
+
+        ar: {
+          "nav.services":"الخدمات","nav.packages":"الباقات","nav.hotels":"الفنادق","nav.visa":"التأشيرات","nav.reviews":"آراء العملاء","nav.contact":"تواصل معنا","nav.book":"احجز الآن",
+          "hero.badge":"شريكك المتكامل للسفر والتأشيرات",
+          "hero.title1":"اكتشف العالم مع",
+          "hero.sub":"طيران • فنادق • تأشيرات • باقات • جولات — عروض قوية، رد سريع، وحجز سهل.",
+          "hero.cta1":"شاهد الباقات","hero.cta2":"اطلب عرض سعر",
+          "hero.stat1":"دعم","hero.stat2a":"سريع","hero.stat2b":"في إنجاز التأشيرات","hero.stat3a":"أفضل","hero.stat3b":"عروض السفر",
+
+          "quick.title":"طلب سريع","quick.sub":"اكتب وجهتك وسنرسل لك أفضل العروض.","quick.send":"إرسال الطلب","quick.or":"أو واتساب:",
+
+          "services.title":"الخدمات","services.sub":"كل ما تحتاجه — طيران، فنادق، تأشيرات، وتخطيط كامل للرحلة.",
+          "services.flights":"حجوزات الطيران","services.flightsP":"أفضل الخيارات ومسارات ذكية وتذاكر مرنة.",
+          "services.hotels":"حجوزات الفنادق","services.hotelsP":"خيارات ممتازة — عائلي، فاخر، أو اقتصادي.",
+          "services.visa":"التأشيرات","services.visaP":"مساعدة سريعة مع المتطلبات والمتابعة حتى النتيجة.",
+          "services.packages":"الباقات","services.packagesP":"باقات جاهزة وبرامج مخصصة حسب طلبك.",
+
+          "packages.title":"الباقات الأكثر طلبًا",
+          "packages.sub":"جورجيا، تركيا، المالديف، أذربيجان، تايلاند، والسعودية (مكة والمدينة).",
+          "packages.whatsapp":"راسلنا واتساب لتصميم باقتك حسب رغبتك",
+
+          "pkg.georgia":"باقة جورجيا","pkg.georgiaP":"تبليسي + خيار جوداوري/باكورياني • فندق + جولات • استقبال من المطار.",
+          "pkg.turkey":"باقة تركيا","pkg.turkeyP":"إسطنبول + بورصة/صبنجة • جولات • خيارات فنادق مرنة.",
+          "pkg.maldives":"باقة المالديف","pkg.maldivesP":"منتجعات • تجهيز شهر عسل • تنقلات حسب الطلب.",
+          "pkg.azer":"أذربيجان (باكو)","pkg.azerP":"جولة مدينة باكو • تسوق والمدينة القديمة • خيار رحلة قابالا.",
+          "pkg.thai":"باقة تايلاند","pkg.thaiP":"بانكوك + بوكيت/بتايا • جولات جزر • خيارات مناسبة للعائلات.",
+          "pkg.saudi":"السعودية (عمرة)","pkg.saudiP":"فنادق مكة والمدينة • تنقلات • برنامج حسب طلبك.",
+          "pkg.cta":"اطلب عرض",
+          "pkg.nights57":"5–7 ليالٍ","pkg.nights58":"5–8 ليالٍ","pkg.nights46":"4–6 ليالٍ","pkg.nights45":"4–5 ليالٍ","pkg.nights69":"6–9 ليالٍ","pkg.nights37":"3–7 ليالٍ",
+
+          "hotels.title":"الفنادق والإقامات",
+          "hotels.sub":"اختر من أفضل الفنادق والشقق حول العالم — عائلي، فاخر أو اقتصادي.",
+          "hotels.c1":"أفضل العروض والترقيات المتاحة","hotels.c2":"خيارات إلغاء مرنة","hotels.c3":"تأكيد سريع ودعم مستمر",
+          "hotels.cta1":"اطلب عروض الفنادق","hotels.cta2":"شاهد الباقات",
+
+          "visa.title":"خدمات التأشيرات",
+          "visa.sub":"متطلبات واضحة، قائمة مستندات، ومتابعة حتى صدور النتيجة.",
+          "visa.m1t":"قائمة المتطلبات","visa.m1p":"نجهّز المتطلبات حسب الدولة.",
+          "visa.m2t":"إجراءات سريعة","visa.m2p":"نسرّع العملية قدر الإمكان.",
+          "visa.m3t":"إرشاد كامل","visa.m3p":"تجنب أخطاء الرفض الشائعة.",
+          "visa.m4t":"دعم سريع","visa.m4p":"ردود سريعة عبر واتساب/الإيميل.",
+          "visa.cta":"ابدأ طلب التأشيرة",
+
+          "reviews.title":"آراء العملاء","reviews.sub":"خدمة حقيقية ودعم فعلي — نهتم برحلتك.",
+          "reviews.r1":"“رد سريع وتنظيم ممتاز للباقة. كل شيء كان سلس.”",
+          "reviews.r2":"“خيارات الفنادق كانت ممتازة وساعدونا نختار أفضل موقع.”",
+          "reviews.r3":"“قائمة التأشيرة وفرت وقت كبير والمتابعة كانت ممتازة.”",
+
+          "contact.title":"تواصل معنا","contact.sub":"أرسل طلبك — ونرد بسرعة بأفضل العروض.",
+          "contact.brand":"ترايبستا ترافلز",
+          "contact.whLabel":"هاتف / واتساب","contact.emailLabel":"البريد الإلكتروني","contact.locLabel":"الموقع","contact.locVal":"الإمارات",
+          "contact.whCta":"تحدث على واتساب","contact.send":"إرسال الرسالة",
+          "contact.tip":"ملاحظة: يمكن ربط نموذج إرسال حقيقي لاحقًا (Formspree) بدون تغيير الاستضافة.",
+
+          "footer.rights":"جميع الحقوق محفوظة.","footer.privacy":"الخصوصية","footer.terms":"الشروط",
+
+          "service.packages":"باقات","service.hotels":"فنادق","service.flights":"طيران","service.visa":"تأشيرات",
+
+          "ph.name":"الاسم *","ph.email":"الإيميل *","ph.destination":"الوجهة (مثال: جورجيا / المالديف)",
+          "ph.phone":"رقم الهاتف / واتساب","ph.message":"رسالتك *"
+        }
+      };
+
+      function applyLang(lang){
+        document.body.setAttribute("data-lang", lang);
+
+        // direction + font
+        if(lang === "ar"){
+          document.documentElement.lang = "ar";
+          document.documentElement.dir = "rtl";
+          document.body.classList.add("rtl");
+        }else{
+          document.documentElement.lang = "en";
+          document.documentElement.dir = "ltr";
+          document.body.classList.remove("rtl");
+        }
+
+        // text nodes
+        document.querySelectorAll("[data-i18n]").forEach(el=>{
+          const key = el.getAttribute("data-i18n");
+          if(dict[lang][key]) el.textContent = dict[lang][key];
+        });
+
+        // placeholders
+        document.querySelectorAll("[data-i18n-ph]").forEach(el=>{
+          const key = el.getAttribute("data-i18n-ph");
+          if(dict[lang][key]) el.setAttribute("placeholder", dict[lang][key]);
+        });
+
+        // localStorage
+        localStorage.setItem("tripesta_lang", lang);
+      }
+
+      const saved = localStorage.getItem("tripesta_lang") || "en";
+      applyLang(saved);
+
+      document.getElementById("langToggle").addEventListener("click", ()=>{
+        const current = document.body.getAttribute("data-lang") || "en";
+        applyLang(current === "en" ? "ar" : "en");
+      });
     </script>
   </body>
 </html>
