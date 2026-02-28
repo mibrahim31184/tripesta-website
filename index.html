@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Tripesta Travels | Explore The World</title>
-    <meta name="description" content="Tripesta Travels - Flights, Hotels, Visa, Packages & Tours." />
+    <title>Tripesta Travel | Explore The World</title>
+    <meta name="description" content="Tripesta Travel - Flights, Hotels, Visa, Packages & Tours." />
 
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 
@@ -27,6 +27,29 @@
 
     <!-- Custom CSS -->
     <link href="css/styles.css" rel="stylesheet" />
+
+    <!-- Minimal tweaks (logo + hero slider fade) -->
+    <style>
+      .brand-logo { height: 42px; width: auto; }
+      .brand-name { font-weight: 800; letter-spacing: .5px; }
+      body.rtl { font-family: "Tajawal", sans-serif; }
+      body:not(.rtl) { font-family: "Poppins", sans-serif; }
+
+      /* Hero slider crossfade layers */
+      .hero { position: relative; overflow: hidden; }
+      .hero-bg, .hero-bg2 {
+        position: absolute; inset: 0;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: opacity 900ms ease;
+        will-change: opacity;
+      }
+      .hero-bg { opacity: 1; }
+      .hero-bg2 { opacity: 0; }
+      .hero-overlay { position:absolute; inset:0; background: rgba(0,0,0,.35); }
+      .hero-content { position: relative; z-index: 2; }
+    </style>
   </head>
 
   <body id="page-top" data-lang="en">
@@ -34,8 +57,13 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top glass-nav" id="mainNav">
       <div class="container">
         <a class="navbar-brand d-flex align-items-center gap-2" href="#page-top">
-          <img src="assets/img/logo.png" alt="Tripesta" class="brand-logo" onerror="this.style.display='none'" />
-          <span class="brand-name">Tripesta</span>
+          <!-- ✅ Put your logo here: assets/img/tripesta-logo.png -->
+          <img src="assets/img/tripesta-logo.png" alt="Tripesta" class="brand-logo"
+               onerror="this.style.display='none'" />
+          <span class="brand-name">
+            <span class="brand-en">Tripesta Travel</span>
+            <span class="brand-ar d-none">تريبستا ترافيل</span>
+          </span>
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
@@ -48,6 +76,7 @@
             <li class="nav-item"><a class="nav-link" href="#packages" data-i18n="nav.packages">Packages</a></li>
             <li class="nav-item"><a class="nav-link" href="#hotels" data-i18n="nav.hotels">Hotels</a></li>
             <li class="nav-item"><a class="nav-link" href="#visa" data-i18n="nav.visa">Visa</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about" data-i18n="nav.about">About</a></li>
             <li class="nav-item"><a class="nav-link" href="#testimonials" data-i18n="nav.reviews">Reviews</a></li>
             <li class="nav-item"><a class="nav-link" href="#contact" data-i18n="nav.contact">Contact</a></li>
 
@@ -71,7 +100,10 @@
     <!-- HERO -->
     <header class="hero">
       <div class="hero-overlay"></div>
-      <div class="hero-bg" style="background-image:url('assets/img/hero-travel.png');"></div>
+
+      <!-- ✅ Hero Slider Layers -->
+      <div class="hero-bg" id="heroBg"></div>
+      <div class="hero-bg2" id="heroBg2"></div>
 
       <div class="container hero-content">
         <div class="row align-items-center g-5">
@@ -151,7 +183,11 @@
                 <div class="col-12">
                   <div class="small mt-2 text-muted">
                     <span data-i18n="quick.or">Or WhatsApp:</span>
-                    <a class="link-soft" href="https://wa.me/971521774320" target="_blank" rel="noopener">+971 52 177 4320</a>
+                    <!-- ✅ WhatsApp #1 (dynamic message) -->
+                    <a class="link-soft" id="waInline1" href="#" target="_blank" rel="noopener">+971 52 177 4320</a>
+                    <span class="mx-2">|</span>
+                    <!-- ✅ WhatsApp #2 (dynamic message) -->
+                    <a class="link-soft" id="waInline2" href="#" target="_blank" rel="noopener">+971 50 366 1905</a>
                   </div>
                 </div>
               </form>
@@ -336,7 +372,7 @@
         </div>
 
         <div class="text-center mt-4">
-          <a class="btn btn-ghost" href="https://wa.me/971521774320" target="_blank" rel="noopener" data-i18n="packages.whatsapp">
+          <a class="btn btn-ghost" id="waPackages" href="#" target="_blank" rel="noopener" data-i18n="packages.whatsapp">
             WhatsApp us to customize your package
           </a>
         </div>
@@ -435,6 +471,39 @@
       </div>
     </section>
 
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head text-center">
+          <h2 class="section-title" data-i18n="about.title">About Us</h2>
+          <p class="section-sub" data-i18n="about.sub">Since 2014, we’ve been helping travelers book with confidence.</p>
+        </div>
+
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-6">
+            <div class="media-card">
+              <div class="media-img" style="background-image:url('assets/img/about/about.jpg');"></div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <h3 class="mb-3" data-i18n="about.h">Tripesta Travel FZE — Established 2014</h3>
+            <p class="text-muted" data-i18n="about.p1">
+              We started in 2014 and achieved strong milestones in travel, tourism, UAE local activities, and international packages.
+              We support flights, hotels, transportation, tours, and visa services with fast response and reliable partners.
+            </p>
+            <ul class="checklist">
+              <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="about.b1">Trusted deals for flights & hotels</span></li>
+              <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="about.b2">UAE activities & worldwide tours</span></li>
+              <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="about.b3">Transportation & complete trip planning</span></li>
+            </ul>
+            <div class="mt-3">
+              <a class="btn btn-brand" href="#contact" data-i18n="about.cta">Contact Us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- TESTIMONIALS -->
     <section class="section" id="testimonials">
       <div class="container">
@@ -497,14 +566,16 @@
         <div class="row g-4">
           <div class="col-lg-5">
             <div class="contact-card">
-              <h5 class="mb-3" data-i18n="contact.brand">Tripesta Travels</h5>
+              <h5 class="mb-3" data-i18n="contact.brand">Tripesta Travel</h5>
 
               <div class="contact-item">
                 <i class="fa-solid fa-phone"></i>
                 <div>
                   <div class="label" data-i18n="contact.whLabel">Phone / WhatsApp</div>
                   <div class="value">
-                    <a class="link-soft" href="https://wa.me/971521774320" target="_blank" rel="noopener">+971 52 177 4320</a>
+                    <a class="link-soft" id="waContact1" href="#" target="_blank" rel="noopener">+971 52 177 4320</a>
+                    <span class="mx-2">|</span>
+                    <a class="link-soft" id="waContact2" href="#" target="_blank" rel="noopener">+971 50 366 1905</a>
                   </div>
                 </div>
               </div>
@@ -523,19 +594,34 @@
                 <i class="fa-solid fa-location-dot"></i>
                 <div>
                   <div class="label" data-i18n="contact.locLabel">Location</div>
-                  <div class="value" data-i18n="contact.locVal">UAE</div>
+                  <div class="value">
+                    Ajman Free Zone Head Office - Sheikh Rashid Bin Saeed Al Maktoum St - Al Bustan - ليوارة 1 - Ajman
+                    <div class="mt-2">
+                      <a class="link-soft" href="https://maps.app.goo.gl/mZdM389NSqy7omh2A" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-map-location-dot me-1"></i>
+                        <span data-i18n="contact.openMap">Open on Google Maps</span>
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div class="social mt-3">
-                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+              <!-- ✅ Map iframe -->
+              <div class="mt-3">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24241.491735919422!2d55.43367833840664!3d25.420896341205225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef5f925866c326b%3A0x2c398d47d0c3e390!2sAjman%20Media%20City!5e1!3m2!1sen!2sae!4v1772242645368!5m2!1sen!2sae"
+                  width="100%" height="260" style="border:0; border-radius:14px;"
+                  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
               </div>
 
-              <div class="mt-4">
-                <a class="btn btn-brand w-100" href="https://wa.me/971521774320" target="_blank" rel="noopener">
-                  <span data-i18n="contact.whCta">Chat on WhatsApp</span>
+              <div class="mt-4 d-grid gap-2">
+                <a class="btn btn-brand w-100" id="waBtn1" href="#" target="_blank" rel="noopener">
+                  <span data-i18n="contact.whCta1">Chat on WhatsApp (1)</span>
+                  <i class="fa-brands fa-whatsapp ms-2"></i>
+                </a>
+                <a class="btn btn-ghost w-100" id="waBtn2" href="#" target="_blank" rel="noopener">
+                  <span data-i18n="contact.whCta2">Chat on WhatsApp (2)</span>
                   <i class="fa-brands fa-whatsapp ms-2"></i>
                 </a>
               </div>
@@ -572,21 +658,17 @@
                       <i class="fa-regular fa-paper-plane ms-2"></i>
                     </button>
                   </div>
-                  <div class="col-12">
-                    <div class="small text-muted text-center" data-i18n="contact.tip">
-                      Tip: We can connect a real form later (Formspree) without changing hosting.
-                    </div>
-                  </div>
                 </div>
               </form>
             </div>
           </div>
         </div>
 
+        <!-- ✅ Footer (fixed 2014) -->
         <div class="footer-bottom mt-5">
           <div class="container px-0">
             <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
-              <div class="small">© <span id="year"></span> Tripesta Travels. <span data-i18n="footer.rights">All rights reserved.</span></div>
+              <div class="small">© 2014 Tripesta Travel FZE. <span data-i18n="footer.rights">All rights reserved.</span></div>
               <div class="small d-flex gap-3">
                 <a class="link-soft" href="#" data-i18n="footer.privacy">Privacy</a>
                 <a class="link-soft" href="#" data-i18n="footer.terms">Terms</a>
@@ -602,9 +684,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-      // year
-      document.getElementById("year").textContent = new Date().getFullYear();
-
       // navbar shrink
       const nav = document.getElementById("mainNav");
       const onScroll = () => {
@@ -614,10 +693,43 @@
       window.addEventListener("scroll", onScroll);
       onScroll();
 
-      // i18n dictionary
+      // =========================
+      // ✅ HERO SLIDER (11 IMAGES + FADE)
+      // Put images in: assets/img/hero/hero1.jpg ... hero11.jpg
+      // =========================
+      const heroImages = Array.from({length: 11}, (_, i) => `assets/img/hero/hero${i+1}.jpg`);
+      const heroBg = document.getElementById("heroBg");
+      const heroBg2 = document.getElementById("heroBg2");
+      let heroIndex = 0;
+      let useSecond = false;
+
+      function setHeroBg(url, el){ el.style.backgroundImage = `url('${url}')`; }
+
+      // init
+      setHeroBg(heroImages[0], heroBg);
+
+      setInterval(() => {
+        heroIndex = (heroIndex + 1) % heroImages.length;
+        const nextUrl = heroImages[heroIndex];
+
+        if(!useSecond){
+          setHeroBg(nextUrl, heroBg2);
+          heroBg2.style.opacity = 1;
+          heroBg.style.opacity = 0;
+        } else {
+          setHeroBg(nextUrl, heroBg);
+          heroBg.style.opacity = 1;
+          heroBg2.style.opacity = 0;
+        }
+        useSecond = !useSecond;
+      }, 6000);
+
+      // =========================
+      // ✅ i18n dictionary (updated)
+      // =========================
       const dict = {
         en: {
-          "nav.services":"Services","nav.packages":"Packages","nav.hotels":"Hotels","nav.visa":"Visa","nav.reviews":"Reviews","nav.contact":"Contact","nav.book":"Book Now",
+          "nav.services":"Services","nav.packages":"Packages","nav.hotels":"Hotels","nav.visa":"Visa","nav.about":"About Us","nav.reviews":"Reviews","nav.contact":"Contact","nav.book":"Book Now",
           "hero.badge":"Your Complete Travel & Visa Partner",
           "hero.title1":"Explore the World with",
           "hero.sub":"Flights • Hotels • Visa • Packages • Tours — curated deals, fast support, and smooth booking.",
@@ -657,16 +769,27 @@
           "visa.m4t":"Support","visa.m4p":"Fast replies on WhatsApp/Email.",
           "visa.cta":"Start Visa Request",
 
+          "about.title":"About Us",
+          "about.sub":"Since 2014, we’ve been helping travelers book with confidence.",
+          "about.h":"Tripesta Travel FZE — Established 2014",
+          "about.p1":"Founded in 2014, Tripesta Travel FZE has achieved strong milestones in travel & tourism. We handle flights, hotels, transportation, tours, UAE activities, and international packages with fast support and trusted partners.",
+          "about.b1":"Trusted deals for flights & hotels",
+          "about.b2":"UAE activities & worldwide tours",
+          "about.b3":"Transportation & complete trip planning",
+          "about.cta":"Contact Us",
+
           "reviews.title":"Customer Reviews","reviews.sub":"Real service, real support — we care about your trip.",
           "reviews.r1":"“Super fast response and very organized package. Everything was smooth.”",
           "reviews.r2":"“Hotel options were excellent. They helped us pick the best location.”",
           "reviews.r3":"“Visa checklist saved time. They followed up until it was done.”",
 
           "contact.title":"Contact Us","contact.sub":"Send your request — we reply fast with offers.",
-          "contact.brand":"Tripesta Travels",
-          "contact.whLabel":"Phone / WhatsApp","contact.emailLabel":"Email","contact.locLabel":"Location","contact.locVal":"UAE",
-          "contact.whCta":"Chat on WhatsApp","contact.send":"Send Message",
-          "contact.tip":"Tip: We can connect a real form later (Formspree) without changing hosting.",
+          "contact.brand":"Tripesta Travel",
+          "contact.whLabel":"Phone / WhatsApp","contact.emailLabel":"Email","contact.locLabel":"Location",
+          "contact.openMap":"Open on Google Maps",
+          "contact.whCta1":"Chat on WhatsApp (1)",
+          "contact.whCta2":"Chat on WhatsApp (2)",
+          "contact.send":"Send Message",
 
           "footer.rights":"All rights reserved.","footer.privacy":"Privacy","footer.terms":"Terms",
 
@@ -677,7 +800,7 @@
         },
 
         ar: {
-          "nav.services":"الخدمات","nav.packages":"الباقات","nav.hotels":"الفنادق","nav.visa":"التأشيرات","nav.reviews":"آراء العملاء","nav.contact":"تواصل معنا","nav.book":"احجز الآن",
+          "nav.services":"الخدمات","nav.packages":"الباقات","nav.hotels":"الفنادق","nav.visa":"التأشيرات","nav.about":"من نحن","nav.reviews":"آراء العملاء","nav.contact":"تواصل معنا","nav.book":"احجز الآن",
           "hero.badge":"شريكك المتكامل للسفر والتأشيرات",
           "hero.title1":"اكتشف العالم مع",
           "hero.sub":"طيران • فنادق • تأشيرات • باقات • جولات — عروض قوية، رد سريع، وحجز سهل.",
@@ -685,7 +808,6 @@
           "hero.stat1":"دعم","hero.stat2a":"سريع","hero.stat2b":"في إنجاز التأشيرات","hero.stat3a":"أفضل","hero.stat3b":"عروض السفر",
 
           "quick.title":"طلب سريع","quick.sub":"اكتب وجهتك وسنرسل لك أفضل العروض.","quick.send":"إرسال الطلب","quick.or":"أو واتساب:",
-
           "services.title":"الخدمات","services.sub":"كل ما تحتاجه — طيران، فنادق، تأشيرات، وتخطيط كامل للرحلة.",
           "services.flights":"حجوزات الطيران","services.flightsP":"أفضل الخيارات ومسارات ذكية وتذاكر مرنة.",
           "services.hotels":"حجوزات الفنادق","services.hotelsP":"خيارات ممتازة — عائلي، فاخر، أو اقتصادي.",
@@ -718,16 +840,27 @@
           "visa.m4t":"دعم سريع","visa.m4p":"ردود سريعة عبر واتساب/الإيميل.",
           "visa.cta":"ابدأ طلب التأشيرة",
 
+          "about.title":"من نحن",
+          "about.sub":"منذ 2014 ونحن نساعد المسافرين على الحجز بثقة.",
+          "about.h":"ترايبستا ترافيل FZE — تأسسنا عام 2014",
+          "about.p1":"تأسست شركة ترايبستا ترافيل عام 2014 وحققت نجاحات قوية في عالم السياحة والسفر. نقدم خدمات الطيران والفنادق والمواصلات والجولات والأنشطة داخل الإمارات والباقات الخارجية، مع دعم سريع وشركاء موثوقين.",
+          "about.b1":"أفضل عروض الطيران والفنادق",
+          "about.b2":"أنشطة داخل الإمارات وجولات عالمية",
+          "about.b3":"مواصلات وتخطيط كامل للرحلات",
+          "about.cta":"تواصل معنا",
+
           "reviews.title":"آراء العملاء","reviews.sub":"خدمة حقيقية ودعم فعلي — نهتم برحلتك.",
           "reviews.r1":"“رد سريع وتنظيم ممتاز للباقة. كل شيء كان سلس.”",
           "reviews.r2":"“خيارات الفنادق كانت ممتازة وساعدونا نختار أفضل موقع.”",
           "reviews.r3":"“قائمة التأشيرة وفرت وقت كبير والمتابعة كانت ممتازة.”",
 
           "contact.title":"تواصل معنا","contact.sub":"أرسل طلبك — ونرد بسرعة بأفضل العروض.",
-          "contact.brand":"ترايبستا ترافلز",
-          "contact.whLabel":"هاتف / واتساب","contact.emailLabel":"البريد الإلكتروني","contact.locLabel":"الموقع","contact.locVal":"الإمارات",
-          "contact.whCta":"تحدث على واتساب","contact.send":"إرسال الرسالة",
-          "contact.tip":"ملاحظة: يمكن ربط نموذج إرسال حقيقي لاحقًا (Formspree) بدون تغيير الاستضافة.",
+          "contact.brand":"تريبستا ترافيل",
+          "contact.whLabel":"هاتف / واتساب","contact.emailLabel":"البريد الإلكتروني","contact.locLabel":"العنوان",
+          "contact.openMap":"فتح على خرائط جوجل",
+          "contact.whCta1":"تحدث على واتساب (1)",
+          "contact.whCta2":"تحدث على واتساب (2)",
+          "contact.send":"إرسال الرسالة",
 
           "footer.rights":"جميع الحقوق محفوظة.","footer.privacy":"الخصوصية","footer.terms":"الشروط",
 
@@ -746,10 +879,14 @@
           document.documentElement.lang = "ar";
           document.documentElement.dir = "rtl";
           document.body.classList.add("rtl");
+          document.querySelector(".brand-en")?.classList.add("d-none");
+          document.querySelector(".brand-ar")?.classList.remove("d-none");
         }else{
           document.documentElement.lang = "en";
           document.documentElement.dir = "ltr";
           document.body.classList.remove("rtl");
+          document.querySelector(".brand-en")?.classList.remove("d-none");
+          document.querySelector(".brand-ar")?.classList.add("d-none");
         }
 
         // text nodes
@@ -764,7 +901,31 @@
           if(dict[lang][key]) el.setAttribute("placeholder", dict[lang][key]);
         });
 
-        // localStorage
+        // ✅ WhatsApp links with SAFE encoding (no Arabic mess)
+        const waMsgAR =
+`شكراً لتواصلك مع ترايبستا ترافيل.
+تم استلام رسالتك وسنرد عليك في أقرب وقت.
+مواعيد مركز الاتصال: من الإثنين إلى الجمعة
+من الساعة 9 صباحاً إلى 8 مساءً.`;
+
+        const waMsgEN =
+`Thank you for contacting Tripesta Travel.
+We received your message and will get back to you as soon as possible.
+Call Center hours: Monday to Friday
+9:00 AM to 8:00 PM.`;
+
+        const msg = (lang === "ar") ? waMsgAR : waMsgEN;
+        const encoded = encodeURIComponent(msg);
+
+        const wa1 = `https://wa.me/971521774320?text=${encoded}`;
+        const wa2 = `https://wa.me/971503661905?text=${encoded}`;
+
+        const ids1 = ["waInline1","waContact1","waBtn1","waPackages"];
+        const ids2 = ["waInline2","waContact2","waBtn2"];
+
+        ids1.forEach(id => { const el = document.getElementById(id); if(el) el.href = wa1; });
+        ids2.forEach(id => { const el = document.getElementById(id); if(el) el.href = wa2; });
+
         localStorage.setItem("tripesta_lang", lang);
       }
 
