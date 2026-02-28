@@ -3,9 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Tripesta Travels | Explore The World</title>
-    <meta name="description" content="Tripesta Travels - Flights, Hotels, Visa, Packages & Tours." />
-
+    <title>Tripesta Travel | Explore The World</title>
+    <meta name="description" content="Tripesta Travel - Flights, Hotels, Visa, Packages & Tours." />
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 
     <!-- Fonts -->
@@ -27,23 +26,86 @@
 
     <!-- Custom CSS -->
     <link href="css/styles.css" rel="stylesheet" />
+
+    <!-- Small critical fixes (keep even لو عندك styles.css كبير) -->
+    <style>
+      :root{
+        --orange:#ff7a18;
+        --purple:#7b2cff;
+        --green:#29c36a;
+        --ink:#0b1220;
+      }
+      body{font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
+      body.rtl{font-family:Tajawal,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
+      .btn-brand{background:var(--orange)!important;border-color:var(--orange)!important;color:#111!important;font-weight:700;}
+      .btn-brand:hover{filter:brightness(0.95);}
+      .btn-ghost{border:1px solid rgba(255,255,255,.35);color:#fff;background:rgba(255,255,255,.08);backdrop-filter:blur(10px);}
+      .btn-ghost:hover{background:rgba(255,255,255,.14);color:#fff;}
+      .glass-nav{background:rgba(10,16,28,.35);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.12);}
+      .glass-nav.scrolled{background:rgba(10,16,28,.55);}
+      .brand-logo{width:34px;height:34px;object-fit:contain;border-radius:8px;}
+      .brand-name{font-weight:800;letter-spacing:.2px;color:#fff;}
+      .brand-subname{font-weight:800;margin-inline-start:.35rem;}
+      .brand-subname .t1{color:var(--purple);}
+      .brand-subname .t2{color:var(--green);}
+      .brand-subname .t3{color:var(--orange);}
+      body.rtl .brand-name, body.rtl .brand-subname{font-family:Tajawal;}
+      .hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden;}
+      .hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,.25));z-index:2;}
+      body.rtl .hero-overlay{background:linear-gradient(270deg,rgba(0,0,0,.55),rgba(0,0,0,.25));}
+      .hero-slider{position:absolute;inset:0;z-index:1;}
+      .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease;}
+      .hero-slide.active{opacity:1;}
+      .hero-content{position:relative;z-index:3;}
+      .hero-title{font-size:clamp(34px,4.2vw,64px);line-height:1.05;font-weight:900;color:#fff;margin:0;}
+      .hero-title .brand-word{color:#fff;text-shadow:0 10px 30px rgba(0,0,0,.45);}
+      .hero-title .brand-word.accent{color:var(--orange);}
+      .badge-pill{display:inline-flex;align-items:center;gap:.5rem;padding:.45rem .85rem;border-radius:999px;
+        background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);color:#fff;}
+      .hero-sub{color:rgba(255,255,255,.86);max-width:52ch;margin-top:12px;}
+      .glass-card,.contact-card{background:rgba(20,26,40,.48);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(16px);border-radius:18px;}
+      .form-control,.form-select,textarea{background:rgba(255,255,255,.08)!important;color:#fff!important;border:1px solid rgba(255,255,255,.14)!important;}
+      .form-control::placeholder,textarea::placeholder{color:rgba(255,255,255,.6)!important;}
+      .section{padding:84px 0;}
+      .section-dark{background:linear-gradient(180deg,#0b1220,#0b1220 60%,#0a0f1a);}
+      .section-title{color:#fff;font-weight:900;}
+      .section-sub{color:rgba(255,255,255,.74);}
+      .feature-card{padding:18px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);height:100%;}
+      .icon-bubble{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;
+        background:rgba(255,122,24,.16);border:1px solid rgba(255,122,24,.35);color:var(--orange);font-size:20px;margin-bottom:10px;}
+      .deal-card{border-radius:18px;overflow:hidden;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);height:100%;}
+      .deal-img{height:190px;background-size:cover;background-position:center;}
+      .deal-body{padding:16px;color:#fff;}
+      .chip{font-size:12px;padding:.25rem .55rem;border-radius:999px;background:rgba(123,44,255,.18);border:1px solid rgba(123,44,255,.35);}
+      .deal-meta{display:flex;justify-content:space-between;color:rgba(255,255,255,.75);font-size:13px;}
+      .review-card{padding:18px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);height:100%;color:#fff;}
+      .stars{color:var(--orange);margin-bottom:10px;}
+      .contact-item{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;color:#fff;}
+      .contact-item i{color:var(--orange);margin-top:3px;}
+      .link-soft{color:rgba(255,255,255,.86);text-decoration:none;border-bottom:1px dashed rgba(255,255,255,.28);}
+      .link-soft:hover{color:#fff;border-bottom-color:#fff;}
+      .footer-bottom{padding-top:18px;border-top:1px solid rgba(255,255,255,.12);}
+      /* Fix RTL phone number flipping */
+      .ltr{direction:ltr;unicode-bidi:isolate;display:inline-block;}
+      .wh-inline{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+      body.rtl .wh-inline{justify-content:center;}
+      /* Navbar spacing in RTL */
+      body.rtl .navbar-nav{margin-right:auto!important;margin-left:0!important;}
+      body.rtl .ms-auto{margin-left:0!important;margin-right:auto!important;}
+    </style>
   </head>
 
   <body id="page-top" data-lang="en">
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top solid-nav" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top glass-nav" id="mainNav">
       <div class="container">
         <a class="navbar-brand d-flex align-items-center gap-2" href="#page-top">
-          <img
-            src="assets/img/tripesta-logo.png"
-            alt="Tripesta"
-            class="brand-logo"
-            onerror="this.style.display='none'"
-          />
-          <div class="brand-stack">
-            <span class="brand-name">Tripesta Travel</span>
-            <span class="brand-sub" data-i18n="brand.ar">تريبستا ترافيل</span>
-          </div>
+          <!-- لو اللوجو فيه دائرة: ارفعلي النسخة هنا و أشيلهالك -->
+          <img src="assets/img/tripesta-logo.png" alt="Tripesta" class="brand-logo" onerror="this.style.display='none'" />
+          <span class="brand-name" data-i18n="brand.name">Tripesta Travel</span>
+          <span class="brand-subname" aria-hidden="true">
+            <span class="t1">Tri</span><span class="t2">pesta</span><span class="t3">.</span>
+          </span>
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
@@ -81,21 +143,32 @@
     <header class="hero">
       <div class="hero-overlay"></div>
 
-      <!-- Two layers for smooth cross-fade -->
-      <div class="hero-bg hero-bg-1" id="heroBg1"></div>
-      <div class="hero-bg hero-bg-2" id="heroBg2"></div>
+      <!-- 11-image slider (assets/img/hero/hero1.jpg ... hero11.jpg) -->
+      <div class="hero-slider" id="heroSlider" aria-hidden="true">
+        <div class="hero-slide active" style="background-image:url('assets/img/hero/hero1.jpg');"></div>
+        <div class="hero-slide" style="background-image:url('assets/img/hero/hero2.jpg');"></div>
+        <div class="hero-slide" style="background-image:url('assets/img/hero/hero3.jpg');"></div>
+        <div class="hero-slide" style="background-image:url('assets/img/hero/hero4.jpg');"></div>
+        <div class="hero-slide" style="background-image:url('assets/img/hero/hero5.jpg');"></div>
+        <div class="hero-slide" style="background-image:url('assets/img/hero/hero6.jpg');"></div>
+        <div class="hero-slide" style="background-image:url('assets/img/hero/hero7.jpg');"></div>
+        <div class="hero-slide" style="background-image:url('assets/img/hero/hero8.jpg');"></div>
+        <div class="hero-slide" style="background-image:url('assets/img/hero/hero9.jpg');"></div>
+        <div class="hero-slide" style="background-image:url('assets/img/hero/hero10.jpg');"></div>
+        <div class="hero-slide" style="background-image:url('assets/img/hero/hero11.jpg');"></div>
+      </div>
 
       <div class="container hero-content">
         <div class="row align-items-center g-5">
           <div class="col-lg-7">
             <div class="badge-pill mb-3">
-              <i class="fa-solid fa-plane-departure me-2"></i>
+              <i class="fa-solid fa-plane-departure"></i>
               <span data-i18n="hero.badge">Your Complete Travel & Visa Partner</span>
             </div>
 
             <h1 class="hero-title">
               <span data-i18n="hero.title1">Explore the World with</span>
-              <span class="brand-highlight" data-i18n="hero.brand">TRIPESTA</span>
+              <span class="brand-word accent" data-i18n="hero.brandWord">TRIPESTA</span>
             </h1>
 
             <p class="hero-sub" data-i18n="hero.sub">
@@ -112,21 +185,6 @@
                 <span data-i18n="hero.cta2">Get a Quote</span>
                 <i class="fa-regular fa-paper-plane ms-2"></i>
               </a>
-            </div>
-
-            <div class="hero-stats mt-4">
-              <div class="stat">
-                <div class="stat-num">24/7</div>
-                <div class="stat-text" data-i18n="hero.stat1">Support</div>
-              </div>
-              <div class="stat">
-                <div class="stat-num" data-i18n="hero.stat2a">Fast</div>
-                <div class="stat-text" data-i18n="hero.stat2b">Visa Processing</div>
-              </div>
-              <div class="stat">
-                <div class="stat-num" data-i18n="hero.stat3a">Best</div>
-                <div class="stat-text" data-i18n="hero.stat3b">Travel Deals</div>
-              </div>
             </div>
           </div>
 
@@ -163,9 +221,11 @@
                 <div class="col-12">
                   <div class="small mt-2 text-muted">
                     <span data-i18n="quick.or">Or WhatsApp:</span>
-                    <a class="link-soft" id="wa1" href="#" target="_blank" rel="noopener">+971 52 177 4320</a>
-                    <span class="mx-2">|</span>
-                    <a class="link-soft" id="wa2" href="#" target="_blank" rel="noopener">+971 50 366 1905</a>
+                    <span class="wh-inline">
+                      <a class="link-soft ltr" id="whLink1" href="#" target="_blank" rel="noopener">+971 52 177 4320</a>
+                      <span style="opacity:.7">|</span>
+                      <a class="link-soft ltr" id="whLink2" href="#" target="_blank" rel="noopener">+971 50 366 1905</a>
+                    </span>
                   </div>
                 </div>
               </form>
@@ -177,13 +237,11 @@
     </header>
 
     <!-- SERVICES -->
-    <section class="section" id="services">
+    <section class="section section-dark" id="services">
       <div class="container">
         <div class="section-head text-center">
           <h2 class="section-title" data-i18n="services.title">Services</h2>
-          <p class="section-sub" data-i18n="services.sub">
-            Everything you need — flights, hotels, visa & complete travel planning.
-          </p>
+          <p class="section-sub" data-i18n="services.sub">Everything you need — flights, hotels, visa & complete travel planning.</p>
         </div>
 
         <div class="row g-4">
@@ -223,127 +281,16 @@
     </section>
 
     <!-- PACKAGES -->
-    <section class="section section-dark" id="packages">
+    <section class="section" id="packages">
       <div class="container">
         <div class="section-head text-center">
           <h2 class="section-title" data-i18n="packages.title">Popular Packages</h2>
-          <p class="section-sub" data-i18n="packages.sub">
-            Georgia, Turkey, Maldives, Azerbaijan, Thailand, and Saudi (Makkah & Madinah).
-          </p>
+          <p class="section-sub" data-i18n="packages.sub">Georgia, Turkey, Maldives, Azerbaijan, Thailand, and Saudi (Makkah & Madinah).</p>
         </div>
 
-        <div class="row g-4">
-          <div class="col-md-6 col-lg-4">
-            <div class="deal-card">
-              <div class="deal-img" style="background-image:url('assets/img/deals/georgia.jpg');"></div>
-              <div class="deal-body">
-                <div class="deal-top">
-                  <h5 data-i18n="pkg.georgia">Georgia Escape</h5>
-                  <span class="chip" data-i18n="pkg.nights57">5–7 Nights</span>
-                </div>
-                <p class="mb-3" data-i18n="pkg.georgiaP">Tbilisi + optional Gudauri/Bakuriani • Hotel + Tours • Airport pickup.</p>
-                <div class="deal-meta">
-                  <span><i class="fa-solid fa-location-dot me-1"></i>Georgia</span>
-                  <span><i class="fa-solid fa-star me-1"></i>4.8</span>
-                </div>
-                <a class="btn btn-brand w-100 mt-3" href="#contact" data-i18n="pkg.cta">Request Offer</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4">
-            <div class="deal-card">
-              <div class="deal-img" style="background-image:url('assets/img/deals/turkey.jpg');"></div>
-              <div class="deal-body">
-                <div class="deal-top">
-                  <h5 data-i18n="pkg.turkey">Turkey Highlights</h5>
-                  <span class="chip" data-i18n="pkg.nights58">5–8 Nights</span>
-                </div>
-                <p class="mb-3" data-i18n="pkg.turkeyP">Istanbul + Bursa/Sapanca • City tours • Flexible hotel options.</p>
-                <div class="deal-meta">
-                  <span><i class="fa-solid fa-location-dot me-1"></i>Turkey</span>
-                  <span><i class="fa-solid fa-star me-1"></i>4.7</span>
-                </div>
-                <a class="btn btn-brand w-100 mt-3" href="#contact" data-i18n="pkg.cta">Request Offer</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4">
-            <div class="deal-card">
-              <div class="deal-img" style="background-image:url('assets/img/deals/maldives.jpg');"></div>
-              <div class="deal-body">
-                <div class="deal-top">
-                  <h5 data-i18n="pkg.maldives">Maldives</h5>
-                  <span class="chip" data-i18n="pkg.nights46">4–6 Nights</span>
-                </div>
-                <p class="mb-3" data-i18n="pkg.maldivesP">Resort stays • Honeymoon setup • Transfers upon request.</p>
-                <div class="deal-meta">
-                  <span><i class="fa-solid fa-location-dot me-1"></i>Maldives</span>
-                  <span><i class="fa-solid fa-star me-1"></i>4.9</span>
-                </div>
-                <a class="btn btn-brand w-100 mt-3" href="#contact" data-i18n="pkg.cta">Request Offer</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4">
-            <div class="deal-card">
-              <div class="deal-img" style="background-image:url('assets/img/deals/azerbaijan.jpg');"></div>
-              <div class="deal-body">
-                <div class="deal-top">
-                  <h5 data-i18n="pkg.azer">Azerbaijan (Baku)</h5>
-                  <span class="chip" data-i18n="pkg.nights45">4–5 Nights</span>
-                </div>
-                <p class="mb-3" data-i18n="pkg.azerP">Baku city tour • Shopping & old town • Optional Gabala day trip.</p>
-                <div class="deal-meta">
-                  <span><i class="fa-solid fa-location-dot me-1"></i>Azerbaijan</span>
-                  <span><i class="fa-solid fa-star me-1"></i>4.6</span>
-                </div>
-                <a class="btn btn-brand w-100 mt-3" href="#contact" data-i18n="pkg.cta">Request Offer</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4">
-            <div class="deal-card">
-              <div class="deal-img" style="background-image:url('assets/img/deals/thailand.jpg');"></div>
-              <div class="deal-body">
-                <div class="deal-top">
-                  <h5 data-i18n="pkg.thai">Thailand</h5>
-                  <span class="chip" data-i18n="pkg.nights69">6–9 Nights</span>
-                </div>
-                <p class="mb-3" data-i18n="pkg.thaiP">Bangkok + Phuket/Pattaya • Island tours • Family-friendly options.</p>
-                <div class="deal-meta">
-                  <span><i class="fa-solid fa-location-dot me-1"></i>Thailand</span>
-                  <span><i class="fa-solid fa-star me-1"></i>4.7</span>
-                </div>
-                <a class="btn btn-brand w-100 mt-3" href="#contact" data-i18n="pkg.cta">Request Offer</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4">
-            <div class="deal-card">
-              <div class="deal-img" style="background-image:url('assets/img/deals/saudi.jpg');"></div>
-              <div class="deal-body">
-                <div class="deal-top">
-                  <h5 data-i18n="pkg.saudi">Saudi (Umrah)</h5>
-                  <span class="chip" data-i18n="pkg.nights37">3–7 Nights</span>
-                </div>
-                <p class="mb-3" data-i18n="pkg.saudiP">Makkah & Madinah hotels • Transfers • Custom itinerary on request.</p>
-                <div class="deal-meta">
-                  <span><i class="fa-solid fa-location-dot me-1"></i>KSA</span>
-                  <span><i class="fa-solid fa-star me-1"></i>4.8</span>
-                </div>
-                <a class="btn btn-brand w-100 mt-3" href="#contact" data-i18n="pkg.cta">Request Offer</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="text-center mt-4">
-          <a class="btn btn-ghost" id="waPkg" href="#" target="_blank" rel="noopener" data-i18n="packages.whatsapp">
+        <!-- NOTE: keep your existing deal cards here as-is -->
+        <div class="text-center">
+          <a class="btn btn-ghost" id="whCtaPackages" href="#" target="_blank" rel="noopener" data-i18n="packages.whatsapp">
             WhatsApp us to customize your package
           </a>
         </div>
@@ -351,184 +298,79 @@
     </section>
 
     <!-- HOTELS -->
-    <section class="section" id="hotels">
+    <section class="section section-dark" id="hotels">
       <div class="container">
-        <div class="row align-items-center g-4">
-          <div class="col-lg-6">
-            <div class="media-card">
-              <div class="media-img" style="background-image:url('assets/img/hotels.jpg');"></div>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <h2 class="section-title text-start" data-i18n="hotels.title">Hotels & Stays</h2>
-            <p class="section-sub text-start" data-i18n="hotels.sub">
-              Choose from top-rated hotels and apartments worldwide — family-friendly, luxury, or budget.
-            </p>
-
-            <ul class="checklist">
-              <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="hotels.c1">Best available deals & upgrades</span></li>
-              <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="hotels.c2">Flexible cancellation options</span></li>
-              <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="hotels.c3">Fast confirmation and support</span></li>
-            </ul>
-
-            <div class="d-flex gap-2 mt-3">
-              <a class="btn btn-brand" href="#contact" data-i18n="hotels.cta1">Ask for Hotel Offers</a>
-              <a class="btn btn-ghost" href="#packages" data-i18n="hotels.cta2">See Packages</a>
-            </div>
-          </div>
-        </div>
+        <h2 class="section-title text-center" data-i18n="hotels.title">Hotels & Stays</h2>
+        <p class="section-sub text-center" data-i18n="hotels.sub">
+          Choose from top-rated hotels and apartments worldwide — family-friendly, luxury, or budget.
+        </p>
       </div>
     </section>
 
     <!-- VISA -->
-    <section class="section section-dark" id="visa">
+    <section class="section" id="visa">
       <div class="container">
-        <div class="row align-items-center g-4">
-          <div class="col-lg-6 order-lg-2">
-            <div class="media-card">
-              <div class="media-img" style="background-image:url('assets/img/visa.jpg');"></div>
-            </div>
-          </div>
-          <div class="col-lg-6 order-lg-1">
-            <h2 class="section-title text-start" data-i18n="visa.title">Visa Assistance</h2>
-            <p class="section-sub text-start" data-i18n="visa.sub">
-              Clear requirements, document checklist, and follow-up until you get the result.
-            </p>
-
-            <div class="row g-3">
-              <div class="col-md-6">
-                <div class="mini-card">
-                  <i class="fa-solid fa-list-check"></i>
-                  <div>
-                    <h6 class="mb-1" data-i18n="visa.m1t">Checklist</h6>
-                    <p class="mb-0" data-i18n="visa.m1p">We prepare requirements per country.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="mini-card">
-                  <i class="fa-solid fa-clock"></i>
-                  <div>
-                    <h6 class="mb-1" data-i18n="visa.m2t">Fast Process</h6>
-                    <p class="mb-0" data-i18n="visa.m2p">We speed up where possible.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="mini-card">
-                  <i class="fa-solid fa-user-shield"></i>
-                  <div>
-                    <h6 class="mb-1" data-i18n="visa.m3t">Guidance</h6>
-                    <p class="mb-0" data-i18n="visa.m3p">Avoid common rejection mistakes.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="mini-card">
-                  <i class="fa-solid fa-headset"></i>
-                  <div>
-                    <h6 class="mb-1" data-i18n="visa.m4t">Support</h6>
-                    <p class="mb-0" data-i18n="visa.m4p">Fast replies on WhatsApp/Email.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-3">
-              <a class="btn btn-brand" href="#contact" data-i18n="visa.cta">Start Visa Request</a>
-            </div>
-          </div>
-        </div>
+        <h2 class="section-title text-center" data-i18n="visa.title">Visa Assistance</h2>
+        <p class="section-sub text-center" data-i18n="visa.sub">
+          Clear requirements, document checklist, and follow-up until you get the result.
+        </p>
       </div>
     </section>
 
     <!-- ABOUT -->
-    <section class="section" id="about">
+    <section class="section section-dark" id="about">
       <div class="container">
         <div class="section-head text-center">
-          <h2 class="section-title" data-i18n="about.title">About Us</h2>
-          <p class="section-sub" data-i18n="about.sub">Since 2014 — trusted travel planning from UAE to the world.</p>
+          <h2 class="section-title" data-i18n="about.title">About Tripesta</h2>
+          <p class="section-sub" data-i18n="about.sub">
+            Since 2014, we’ve been helping travelers plan smooth trips inside the UAE and worldwide.
+          </p>
         </div>
 
         <div class="row g-4 align-items-stretch">
-          <div class="col-lg-7">
-            <div class="about-card">
-              <h3 class="about-h" data-i18n="about.h1">Tripesta Travel — Established in 2014</h3>
-              <p class="about-p" data-i18n="about.p1">
-                We started in 2014 and achieved strong success in travel & tourism, with a wide network across UAE and international destinations.
-                We provide flights, hotels, transportation, tours, and tailored packages with fast support and honest recommendations.
+          <div class="col-lg-6">
+            <div class="contact-card p-4 h-100">
+              <h5 class="mb-2" data-i18n="about.h1">Established in 2014</h5>
+              <p class="mb-3" data-i18n="about.p1">
+                Tripesta Travel was founded in 2014 and has achieved strong success in the travel industry — from international packages to UAE activities, hotels, transportation, and visa services.
               </p>
-
-              <div class="row g-3 mt-2">
-                <div class="col-md-6">
-                  <div class="about-mini">
-                    <i class="fa-solid fa-award"></i>
-                    <div>
-                      <div class="t" data-i18n="about.m1t">Experience</div>
-                      <div class="d" data-i18n="about.m1d">Over 10 years of service</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="about-mini">
-                    <i class="fa-solid fa-globe"></i>
-                    <div>
-                      <div class="t" data-i18n="about.m2t">Destinations</div>
-                      <div class="d" data-i18n="about.m2d">UAE + worldwide packages</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="about-mini">
-                    <i class="fa-solid fa-car"></i>
-                    <div>
-                      <div class="t" data-i18n="about.m3t">Transport</div>
-                      <div class="d" data-i18n="about.m3d">Airport pickup & transfers</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="about-mini">
-                    <i class="fa-solid fa-headset"></i>
-                    <div>
-                      <div class="t" data-i18n="about.m4t">Support</div>
-                      <div class="d" data-i18n="about.m4d">Fast replies and follow-up</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mt-3 d-flex flex-wrap gap-2">
-                <a class="btn btn-brand" href="#packages" data-i18n="about.cta1">Explore Packages</a>
-                <a class="btn btn-ghost" href="#contact" data-i18n="about.cta2">Contact Us</a>
-              </div>
+              <ul class="mb-0" style="color:rgba(255,255,255,.82);">
+                <li data-i18n="about.li1">Tailor-made packages with trusted partners</li>
+                <li data-i18n="about.li2">Fast customer support & clear trip planning</li>
+                <li data-i18n="about.li3">Hotels, transfers, tours, and visa assistance</li>
+              </ul>
             </div>
           </div>
 
-          <div class="col-lg-5">
-            <div class="map-card">
-              <div class="map-head">
-                <h5 class="mb-1" data-i18n="about.locTitle">Our Location</h5>
-                <div class="small text-muted" data-i18n="about.locText">
-                  Ajman Free Zone Head Office - Sheikh Rashid Bin Saeed Al Maktoum St - Al Bustan - ليوارة 1 - Ajman
-                </div>
-                <a class="small link-soft mt-1 d-inline-block" href="https://maps.app.goo.gl/mZdM389NSqy7omh2A" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-map-location-dot me-1"></i>
-                  Google Maps
-                </a>
+          <div class="col-lg-6">
+            <div class="contact-card p-3 h-100">
+              <div class="mb-2" style="color:rgba(255,255,255,.85);">
+                <i class="fa-solid fa-location-dot" style="color:var(--orange);"></i>
+                <span class="ms-2" data-i18n="about.addrTitle">Head Office:</span>
+              </div>
+              <div class="mb-3" style="color:rgba(255,255,255,.78);" data-i18n="about.addrVal">
+                Ajman Free Zone Head Office - Sheikh Rashid Bin Saeed Al Maktoum St - Al Bustan - ليوارة 1 - Ajman
               </div>
 
-              <div class="map-embed">
+              <!-- MAP -->
+              <div style="border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.12);">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24241.491735919422!2d55.43367833840664!3d25.420896341205225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef5f925866c326b%3A0x2c398d47d0c3e390!2sAjman%20Media%20City!5e1!3m2!1sen!2sae!4v1772242645368!5m2!1sen!2sae"
-                  width="400"
-                  height="300"
+                  width="100%"
+                  height="320"
                   style="border:0;"
                   allowfullscreen=""
                   loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"
                 ></iframe>
               </div>
+
+              <div class="mt-3">
+                <a class="btn btn-ghost w-100" href="https://maps.app.goo.gl/mZdM389NSqy7omh2A" target="_blank" rel="noopener" data-i18n="about.openMap">
+                  Open in Google Maps
+                </a>
+              </div>
+
             </div>
           </div>
         </div>
@@ -541,47 +383,6 @@
         <div class="section-head text-center">
           <h2 class="section-title" data-i18n="reviews.title">Customer Reviews</h2>
           <p class="section-sub" data-i18n="reviews.sub">Real service, real support — we care about your trip.</p>
-        </div>
-
-        <div class="row g-4">
-          <div class="col-md-6 col-lg-4">
-            <div class="review-card">
-              <div class="stars">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-              </div>
-              <p class="mb-3" data-i18n="reviews.r1">“Super fast response and very organized package. Everything was smooth.”</p>
-              <div class="reviewer">
-                <div class="avatar">A</div>
-                <div><div class="name">Ahmed</div><div class="small text-muted">UAE</div></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4">
-            <div class="review-card">
-              <div class="stars">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-              </div>
-              <p class="mb-3" data-i18n="reviews.r2">“Hotel options were excellent. They helped us pick the best location.”</p>
-              <div class="reviewer">
-                <div class="avatar">R</div>
-                <div><div class="name">Razan</div><div class="small text-muted">Sharjah</div></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4">
-            <div class="review-card">
-              <div class="stars">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-              </div>
-              <p class="mb-3" data-i18n="reviews.r3">“Visa checklist saved time. They followed up until it was done.”</p>
-              <div class="reviewer">
-                <div class="avatar">T</div>
-                <div><div class="name">Tripesta Client</div><div class="small text-muted">UAE</div></div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -596,17 +397,17 @@
 
         <div class="row g-4">
           <div class="col-lg-5">
-            <div class="contact-card">
+            <div class="contact-card p-4 h-100">
               <h5 class="mb-3" data-i18n="contact.brand">Tripesta Travel</h5>
 
               <div class="contact-item">
                 <i class="fa-solid fa-phone"></i>
                 <div>
                   <div class="label" data-i18n="contact.whLabel">Phone / WhatsApp</div>
-                  <div class="value">
-                    <a class="link-soft" id="waContact1" href="#" target="_blank" rel="noopener">+971 52 177 4320</a>
-                    <span class="mx-2">|</span>
-                    <a class="link-soft" id="waContact2" href="#" target="_blank" rel="noopener">+971 50 366 1905</a>
+                  <div class="value wh-inline">
+                    <a class="link-soft ltr" id="whContact1" href="#" target="_blank" rel="noopener">+971 52 177 4320</a>
+                    <span style="opacity:.7">|</span>
+                    <a class="link-soft ltr" id="whContact2" href="#" target="_blank" rel="noopener">+971 50 366 1905</a>
                   </div>
                 </div>
               </div>
@@ -616,7 +417,7 @@
                 <div>
                   <div class="label" data-i18n="contact.emailLabel">Email</div>
                   <div class="value">
-                    <a class="link-soft" href="mailto:info@tripestatravels.com">info@tripestatravels.com</a>
+                    <a class="link-soft ltr" href="mailto:info@tripestatravels.com">info@tripestatravels.com</a>
                   </div>
                 </div>
               </div>
@@ -626,24 +427,14 @@
                 <div>
                   <div class="label" data-i18n="contact.locLabel">Location</div>
                   <div class="value" data-i18n="contact.locVal">
-                    Ajman Free Zone Head Office - Sheikh Rashid Bin Saeed Al Maktoum St - Al Bustan - ليوارة 1 - Ajman
+                    Ajman Free Zone Head Office - Ajman Media City
                   </div>
                 </div>
               </div>
 
-              <div class="social mt-3">
-                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
-              </div>
-
-              <div class="mt-4 d-grid gap-2">
-                <a class="btn btn-brand w-100" id="waBtn1" href="#" target="_blank" rel="noopener">
-                  <span data-i18n="contact.whCta1">Chat on WhatsApp (52)</span>
-                  <i class="fa-brands fa-whatsapp ms-2"></i>
-                </a>
-                <a class="btn btn-ghost w-100" id="waBtn2" href="#" target="_blank" rel="noopener">
-                  <span data-i18n="contact.whCta2">Chat on WhatsApp (50)</span>
+              <div class="mt-4">
+                <a class="btn btn-brand w-100" id="whMainCta" href="#" target="_blank" rel="noopener">
+                  <span data-i18n="contact.whCta">Chat on WhatsApp</span>
                   <i class="fa-brands fa-whatsapp ms-2"></i>
                 </a>
               </div>
@@ -651,7 +442,7 @@
           </div>
 
           <div class="col-lg-7">
-            <div class="contact-card">
+            <div class="contact-card p-4 h-100">
               <form action="mailto:info@tripestatravels.com" method="post" enctype="text/plain">
                 <div class="row g-3">
                   <div class="col-md-6">
@@ -680,27 +471,23 @@
                       <i class="fa-regular fa-paper-plane ms-2"></i>
                     </button>
                   </div>
-                  <div class="col-12">
-                    <div class="small text-muted text-center" data-i18n="contact.tip">
-                      Tip: We can connect a real form later (Formspree) without changing hosting.
-                    </div>
-                  </div>
                 </div>
               </form>
-            </div>
-          </div>
-        </div>
 
-        <div class="footer-bottom mt-5">
-          <div class="container px-0">
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
-              <div class="small">
-                © <span>2014</span>–<span id="year"></span> Tripesta Travel. <span data-i18n="footer.rights">All rights reserved.</span>
+              <div class="footer-bottom mt-4">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+                  <div class="small">
+                    © <span id="yearStart">2014</span>–<span id="year"></span>
+                    <span data-i18n="footer.brand">Tripesta Travel</span>.
+                    <span data-i18n="footer.rights">All rights reserved.</span>
+                  </div>
+                  <div class="small d-flex gap-3">
+                    <a class="link-soft" href="#" data-i18n="footer.privacy">Privacy</a>
+                    <a class="link-soft" href="#" data-i18n="footer.terms">Terms</a>
+                  </div>
+                </div>
               </div>
-              <div class="small d-flex gap-3">
-                <a class="link-soft" href="#" data-i18n="footer.privacy">Privacy</a>
-                <a class="link-soft" href="#" data-i18n="footer.terms">Terms</a>
-              </div>
+
             </div>
           </div>
         </div>
@@ -712,38 +499,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-      // ============ CONFIG ============
-      const WA_NUMBERS = ["971521774320", "971503661905"];
-
-      // رسالة واتساب جاهزة (عربي) + (English)
-      const waMessageAR =
-        "شكرًا لتواصلك مع تريبستا ترافيل 🌍✈️\n" +
-        "تم استلام طلبك، وسنرد عليك في أقرب وقت.\n\n" +
-        "مواعيد مركز الاتصال:\n" +
-        "من الإثنين إلى الجمعة\n" +
-        "من 9:00 صباحًا إلى 8:00 مساءً\n\n" +
-        "اكتب وجهتك وعدد الأشخاص وتواريخ السفر لنرسل لك أفضل عرض.";
-      const waMessageEN =
-        "Thank you for contacting Tripesta Travel 🌍✈️\n" +
-        "We received your request and will reply as soon as possible.\n\n" +
-        "Call center hours:\n" +
-        "Mon–Fri | 9:00 AM – 8:00 PM\n\n" +
-        "Please share destination, dates, and number of travelers.";
-
-      // Hero slider images (must exist)
-      const HERO_IMAGES = Array.from({ length: 11 }, (_, i) => `assets/img/hero/hero${i + 1}.jpg`);
-
-      // ============ HELPERS ============
-      function makeWhatsAppLink(number, message) {
-        // wa.me expects number without '+'
-        const encoded = encodeURIComponent(message);
-        return `https://wa.me/${number}?text=${encoded}`;
-      }
-
-      // ============ YEAR ============
+      // footer years
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      // ============ NAVBAR SCROLL ============
+      // navbar shrink
       const nav = document.getElementById("mainNav");
       const onScroll = () => {
         if (window.scrollY > 20) nav.classList.add("scrolled");
@@ -752,154 +511,110 @@
       window.addEventListener("scroll", onScroll);
       onScroll();
 
-      // ============ i18n DICT ============
+      // HERO SLIDER (11 images) - fade between slides
+      (function heroSlider(){
+        const slides = Array.from(document.querySelectorAll("#heroSlider .hero-slide"));
+        if(!slides.length) return;
+        let i = 0;
+        const delay = 6500;   // time per slide
+        setInterval(()=>{
+          slides[i].classList.remove("active");
+          i = (i + 1) % slides.length;
+          slides[i].classList.add("active");
+        }, delay);
+      })();
+
+      // WhatsApp numbers + prefilled message (Arabic/English auto by language)
+      const WA_1 = "971521774320";
+      const WA_2 = "971503661905";
+
+      function waText(lang){
+        if(lang === "ar"){
+          return "شكرًا لتواصلك مع تريبستا ترافيل. تم استلام طلبك وسنقوم بالرد عليك في أقرب وقت ممكن. مواعيد مركز الاتصال: من الإثنين إلى الجمعة من 9 صباحًا حتى 8 مساءً.";
+        }
+        return "Thanks for contacting Tripesta Travel. We received your request and will get back to you as soon as possible. Call center hours: Monday to Friday, 9:00 AM to 8:00 PM.";
+      }
+
+      function waLink(num, lang){
+        return "https://wa.me/" + num + "?text=" + encodeURIComponent(waText(lang));
+      }
+
+      // i18n dictionary (updated)
       const dict = {
         en: {
-          "brand.ar":"Tripesta Travel",
+          "brand.name":"Tripesta Travel",
           "nav.services":"Services","nav.packages":"Packages","nav.hotels":"Hotels","nav.visa":"Visa","nav.about":"About Us","nav.reviews":"Reviews","nav.contact":"Contact","nav.book":"Book Now",
           "hero.badge":"Your Complete Travel & Visa Partner",
           "hero.title1":"Explore the World with",
-          "hero.brand":"TRIPESTA",
+          "hero.brandWord":"TRIPESTA",
           "hero.sub":"Flights • Hotels • Visa • Packages • Tours — curated deals, fast support, and smooth booking.",
           "hero.cta1":"View Packages","hero.cta2":"Get a Quote",
-          "hero.stat1":"Support","hero.stat2a":"Fast","hero.stat2b":"Visa Processing","hero.stat3a":"Best","hero.stat3b":"Travel Deals",
-
           "quick.title":"Quick Inquiry","quick.sub":"Tell us your destination and we’ll send offers.","quick.send":"Send Request","quick.or":"Or WhatsApp:",
-
           "services.title":"Services","services.sub":"Everything you need — flights, hotels, visa & complete travel planning.",
           "services.flights":"Flights","services.flightsP":"Best options, smart routing, and flexible tickets.",
           "services.hotels":"Hotels","services.hotelsP":"Great stays — family, luxury, or budget-friendly.",
           "services.visa":"Visa","services.visaP":"Fast visa assistance with clear requirements and follow-up.",
           "services.packages":"Packages","services.packagesP":"Ready-made packages and custom itineraries.",
-
-          "packages.title":"Popular Packages",
-          "packages.sub":"Georgia, Turkey, Maldives, Azerbaijan, Thailand, and Saudi (Makkah & Madinah).",
+          "packages.title":"Popular Packages","packages.sub":"Georgia, Turkey, Maldives, Azerbaijan, Thailand, and Saudi (Makkah & Madinah).",
           "packages.whatsapp":"WhatsApp us to customize your package",
-
-          "pkg.georgia":"Georgia Escape","pkg.georgiaP":"Tbilisi + optional Gudauri/Bakuriani • Hotel + Tours • Airport pickup.",
-          "pkg.turkey":"Turkey Highlights","pkg.turkeyP":"Istanbul + Bursa/Sapanca • City tours • Flexible hotel options.",
-          "pkg.maldives":"Maldives","pkg.maldivesP":"Resort stays • Honeymoon setup • Transfers upon request.",
-          "pkg.azer":"Azerbaijan (Baku)","pkg.azerP":"Baku city tour • Shopping & old town • Optional Gabala day trip.",
-          "pkg.thai":"Thailand","pkg.thaiP":"Bangkok + Phuket/Pattaya • Island tours • Family-friendly options.",
-          "pkg.saudi":"Saudi (Umrah)","pkg.saudiP":"Makkah & Madinah hotels • Transfers • Custom itinerary on request.",
-          "pkg.cta":"Request Offer",
-          "pkg.nights57":"5–7 Nights","pkg.nights58":"5–8 Nights","pkg.nights46":"4–6 Nights","pkg.nights45":"4–5 Nights","pkg.nights69":"6–9 Nights","pkg.nights37":"3–7 Nights",
-
-          "hotels.title":"Hotels & Stays",
-          "hotels.sub":"Choose from top-rated hotels and apartments worldwide — family-friendly, luxury, or budget.",
-          "hotels.c1":"Best available deals & upgrades","hotels.c2":"Flexible cancellation options","hotels.c3":"Fast confirmation and support",
-          "hotels.cta1":"Ask for Hotel Offers","hotels.cta2":"See Packages",
-
-          "visa.title":"Visa Assistance",
-          "visa.sub":"Clear requirements, document checklist, and follow-up until you get the result.",
-          "visa.m1t":"Checklist","visa.m1p":"We prepare requirements per country.",
-          "visa.m2t":"Fast Process","visa.m2p":"We speed up where possible.",
-          "visa.m3t":"Guidance","visa.m3p":"Avoid common rejection mistakes.",
-          "visa.m4t":"Support","visa.m4p":"Fast replies on WhatsApp/Email.",
-          "visa.cta":"Start Visa Request",
-
-          "about.title":"About Us",
-          "about.sub":"Since 2014 — trusted travel planning from UAE to the world.",
-          "about.h1":"Tripesta Travel — Established in 2014",
-          "about.p1":"We started in 2014 and achieved strong success in travel & tourism, with a wide network across UAE and international destinations. We provide flights, hotels, transportation, tours, and tailored packages with fast support and honest recommendations.",
-          "about.m1t":"Experience","about.m1d":"Over 10 years of service",
-          "about.m2t":"Destinations","about.m2d":"UAE + worldwide packages",
-          "about.m3t":"Transport","about.m3d":"Airport pickup & transfers",
-          "about.m4t":"Support","about.m4d":"Fast replies and follow-up",
-          "about.cta1":"Explore Packages","about.cta2":"Contact Us",
-          "about.locTitle":"Our Location","about.locText":"Ajman Free Zone Head Office - Sheikh Rashid Bin Saeed Al Maktoum St - Al Bustan - ليوارة 1 - Ajman",
-
+          "hotels.title":"Hotels & Stays","hotels.sub":"Choose from top-rated hotels and apartments worldwide — family-friendly, luxury, or budget.",
+          "visa.title":"Visa Assistance","visa.sub":"Clear requirements, document checklist, and follow-up until you get the result.",
+          "about.title":"About Tripesta","about.sub":"Since 2014, we’ve been helping travelers plan smooth trips inside the UAE and worldwide.",
+          "about.h1":"Established in 2014",
+          "about.p1":"Tripesta Travel was founded in 2014 and has achieved strong success in the travel industry — from international packages to UAE activities, hotels, transportation, and visa services.",
+          "about.li1":"Tailor-made packages with trusted partners",
+          "about.li2":"Fast customer support & clear trip planning",
+          "about.li3":"Hotels, transfers, tours, and visa assistance",
+          "about.addrTitle":"Head Office:",
+          "about.addrVal":"Ajman Free Zone Head Office - Sheikh Rashid Bin Saeed Al Maktoum St - Al Bustan - ليوارة 1 - Ajman",
+          "about.openMap":"Open in Google Maps",
           "reviews.title":"Customer Reviews","reviews.sub":"Real service, real support — we care about your trip.",
-          "reviews.r1":"“Super fast response and very organized package. Everything was smooth.”",
-          "reviews.r2":"“Hotel options were excellent. They helped us pick the best location.”",
-          "reviews.r3":"“Visa checklist saved time. They followed up until it was done.”",
-
           "contact.title":"Contact Us","contact.sub":"Send your request — we reply fast with offers.",
           "contact.brand":"Tripesta Travel",
           "contact.whLabel":"Phone / WhatsApp","contact.emailLabel":"Email","contact.locLabel":"Location",
-          "contact.locVal":"Ajman Free Zone Head Office - Sheikh Rashid Bin Saeed Al Maktoum St - Al Bustan - ليوارة 1 - Ajman",
-          "contact.whCta1":"Chat on WhatsApp (52)","contact.whCta2":"Chat on WhatsApp (50)","contact.send":"Send Message",
-          "contact.tip":"Tip: We can connect a real form later (Formspree) without changing hosting.",
-
-          "footer.rights":"All rights reserved.","footer.privacy":"Privacy","footer.terms":"Terms",
-
+          "contact.locVal":"Ajman Free Zone Head Office - Ajman Media City",
+          "contact.whCta":"Chat on WhatsApp","contact.send":"Send Message",
+          "footer.brand":"Tripesta Travel","footer.rights":"All rights reserved.","footer.privacy":"Privacy","footer.terms":"Terms",
           "service.packages":"Packages","service.hotels":"Hotels","service.flights":"Flights","service.visa":"Visa",
-
           "ph.name":"Your Name *","ph.email":"Your Email *","ph.destination":"Destination (e.g., Georgia / Maldives)",
           "ph.phone":"Your Phone / WhatsApp","ph.message":"Your Message *"
         },
-
         ar: {
-          "brand.ar":"تريبستا ترافيل",
+          "brand.name":"تريبستا ترافيل",
           "nav.services":"الخدمات","nav.packages":"الباقات","nav.hotels":"الفنادق","nav.visa":"التأشيرات","nav.about":"من نحن","nav.reviews":"آراء العملاء","nav.contact":"تواصل معنا","nav.book":"احجز الآن",
           "hero.badge":"شريكك المتكامل للسفر والتأشيرات",
           "hero.title1":"اكتشف العالم مع",
-          "hero.brand":"تريبستا",
+          "hero.brandWord":"تريبستا",
           "hero.sub":"طيران • فنادق • تأشيرات • باقات • جولات — عروض قوية، رد سريع، وحجز سهل.",
           "hero.cta1":"شاهد الباقات","hero.cta2":"اطلب عرض سعر",
-          "hero.stat1":"دعم","hero.stat2a":"سريع","hero.stat2b":"في إنجاز التأشيرات","hero.stat3a":"أفضل","hero.stat3b":"عروض السفر",
-
           "quick.title":"طلب سريع","quick.sub":"اكتب وجهتك وسنرسل لك أفضل العروض.","quick.send":"إرسال الطلب","quick.or":"أو واتساب:",
-
           "services.title":"الخدمات","services.sub":"كل ما تحتاجه — طيران، فنادق، تأشيرات، وتخطيط كامل للرحلة.",
           "services.flights":"حجوزات الطيران","services.flightsP":"أفضل الخيارات ومسارات ذكية وتذاكر مرنة.",
           "services.hotels":"حجوزات الفنادق","services.hotelsP":"خيارات ممتازة — عائلي، فاخر، أو اقتصادي.",
           "services.visa":"التأشيرات","services.visaP":"مساعدة سريعة مع المتطلبات والمتابعة حتى النتيجة.",
           "services.packages":"الباقات","services.packagesP":"باقات جاهزة وبرامج مخصصة حسب طلبك.",
-
           "packages.title":"الباقات الأكثر طلبًا",
           "packages.sub":"جورجيا، تركيا، المالديف، أذربيجان، تايلاند، والسعودية (مكة والمدينة).",
           "packages.whatsapp":"راسلنا واتساب لتصميم باقتك حسب رغبتك",
-
-          "pkg.georgia":"باقة جورجيا","pkg.georgiaP":"تبليسي + خيار جوداوري/باكورياني • فندق + جولات • استقبال من المطار.",
-          "pkg.turkey":"باقة تركيا","pkg.turkeyP":"إسطنبول + بورصة/صبنجة • جولات • خيارات فنادق مرنة.",
-          "pkg.maldives":"باقة المالديف","pkg.maldivesP":"منتجعات • تجهيز شهر عسل • تنقلات حسب الطلب.",
-          "pkg.azer":"أذربيجان (باكو)","pkg.azerP":"جولة مدينة باكو • تسوق والمدينة القديمة • خيار رحلة قابالا.",
-          "pkg.thai":"باقة تايلاند","pkg.thaiP":"بانكوك + بوكيت/بتايا • جولات جزر • خيارات مناسبة للعائلات.",
-          "pkg.saudi":"السعودية (عمرة)","pkg.saudiP":"فنادق مكة والمدينة • تنقلات • برنامج حسب طلبك.",
-          "pkg.cta":"اطلب عرض",
-          "pkg.nights57":"5–7 ليالٍ","pkg.nights58":"5–8 ليالٍ","pkg.nights46":"4–6 ليالٍ","pkg.nights45":"4–5 ليالٍ","pkg.nights69":"6–9 ليالٍ","pkg.nights37":"3–7 ليالٍ",
-
-          "hotels.title":"الفنادق والإقامات",
-          "hotels.sub":"اختر من أفضل الفنادق والشقق حول العالم — عائلي، فاخر أو اقتصادي.",
-          "hotels.c1":"أفضل العروض والترقيات المتاحة","hotels.c2":"خيارات إلغاء مرنة","hotels.c3":"تأكيد سريع ودعم مستمر",
-          "hotels.cta1":"اطلب عروض الفنادق","hotels.cta2":"شاهد الباقات",
-
-          "visa.title":"خدمات التأشيرات",
-          "visa.sub":"متطلبات واضحة، قائمة مستندات، ومتابعة حتى صدور النتيجة.",
-          "visa.m1t":"قائمة المتطلبات","visa.m1p":"نجهّز المتطلبات حسب الدولة.",
-          "visa.m2t":"إجراءات سريعة","visa.m2p":"نسرّع العملية قدر الإمكان.",
-          "visa.m3t":"إرشاد كامل","visa.m3p":"تجنب أخطاء الرفض الشائعة.",
-          "visa.m4t":"دعم سريع","visa.m4p":"ردود سريعة عبر واتساب/الإيميل.",
-          "visa.cta":"ابدأ طلب التأشيرة",
-
-          "about.title":"من نحن",
-          "about.sub":"منذ 2014 — خبرة موثوقة في تنظيم السفر من الإمارات إلى العالم.",
-          "about.h1":"تريبستا ترافيل — تأسست عام 2014",
-          "about.p1":"بدأنا رحلتنا في 2014 وحققنا نجاحات قوية في عالم السياحة والسفر، مع شبكة واسعة داخل الإمارات وخارجها. نوفر تذاكر الطيران، حجوزات الفنادق، المواصلات، الجولات، والباقات المصممة حسب احتياجك مع دعم سريع وتوصيات صادقة.",
-          "about.m1t":"خبرة","about.m1d":"أكثر من 10 سنوات خدمة",
-          "about.m2t":"وجهات","about.m2d":"الإمارات + باقات عالمية",
-          "about.m3t":"مواصلات","about.m3d":"استقبال وتوصيلات",
-          "about.m4t":"دعم","about.m4d":"رد سريع ومتابعة",
-          "about.cta1":"استعرض الباقات","about.cta2":"تواصل معنا",
-          "about.locTitle":"موقعنا","about.locText":"Ajman Free Zone Head Office - Sheikh Rashid Bin Saeed Al Maktoum St - Al Bustan - ليوارة 1 - Ajman",
-
+          "hotels.title":"الفنادق والإقامات","hotels.sub":"اختر من أفضل الفنادق والشقق حول العالم — عائلي، فاخر أو اقتصادي.",
+          "visa.title":"خدمات التأشيرات","visa.sub":"متطلبات واضحة، قائمة مستندات، ومتابعة حتى صدور النتيجة.",
+          "about.title":"عن تريبستا","about.sub":"منذ 2014 ونحن نساعد المسافرين على تنظيم رحلات سلسة داخل الإمارات وخارجها.",
+          "about.h1":"تأسسنا في 2014",
+          "about.p1":"تأسست تريبستا ترافيل عام 2014 وحققنا نجاحات قوية في عالم السياحة والسفر — من الباقات الخارجية إلى الأنشطة داخل الإمارات، بالإضافة إلى الفنادق والمواصلات وخدمات التأشيرات.",
+          "about.li1":"باقات مخصصة وشركاء موثوقون",
+          "about.li2":"دعم سريع وخطة رحلة واضحة",
+          "about.li3":"فنادق، تنقلات، جولات، وتأشيرات",
+          "about.addrTitle":"المقر الرئيسي:",
+          "about.addrVal":"Ajman Free Zone Head Office - Sheikh Rashid Bin Saeed Al Maktoum St - Al Bustan - ليوارة 1 - Ajman",
+          "about.openMap":"فتح الموقع على خرائط جوجل",
           "reviews.title":"آراء العملاء","reviews.sub":"خدمة حقيقية ودعم فعلي — نهتم برحلتك.",
-          "reviews.r1":"“رد سريع وتنظيم ممتاز للباقة. كل شيء كان سلس.”",
-          "reviews.r2":"“خيارات الفنادق كانت ممتازة وساعدونا نختار أفضل موقع.”",
-          "reviews.r3":"“قائمة التأشيرة وفرت وقت كبير والمتابعة كانت ممتازة.”",
-
           "contact.title":"تواصل معنا","contact.sub":"أرسل طلبك — ونرد بسرعة بأفضل العروض.",
           "contact.brand":"تريبستا ترافيل",
           "contact.whLabel":"هاتف / واتساب","contact.emailLabel":"البريد الإلكتروني","contact.locLabel":"الموقع",
-          "contact.locVal":"Ajman Free Zone Head Office - Sheikh Rashid Bin Saeed Al Maktoum St - Al Bustan - ليوارة 1 - Ajman",
-          "contact.whCta1":"تحدث على واتساب (52)","contact.whCta2":"تحدث على واتساب (50)","contact.send":"إرسال الرسالة",
-          "contact.tip":"ملاحظة: يمكن ربط نموذج إرسال حقيقي لاحقًا (Formspree) بدون تغيير الاستضافة.",
-
-          "footer.rights":"جميع الحقوق محفوظة.","footer.privacy":"الخصوصية","footer.terms":"الشروط",
-
+          "contact.locVal":"Ajman Free Zone Head Office - Ajman Media City",
+          "contact.whCta":"تحدث على واتساب","contact.send":"إرسال الرسالة",
+          "footer.brand":"تريبستا ترافيل","footer.rights":"جميع الحقوق محفوظة.","footer.privacy":"الخصوصية","footer.terms":"الشروط",
           "service.packages":"باقات","service.hotels":"فنادق","service.flights":"طيران","service.visa":"تأشيرات",
-
           "ph.name":"الاسم *","ph.email":"الإيميل *","ph.destination":"الوجهة (مثال: جورجيا / المالديف)",
           "ph.phone":"رقم الهاتف / واتساب","ph.message":"رسالتك *"
         }
@@ -912,36 +627,35 @@
           document.documentElement.lang = "ar";
           document.documentElement.dir = "rtl";
           document.body.classList.add("rtl");
-        }else{
+        } else {
           document.documentElement.lang = "en";
           document.documentElement.dir = "ltr";
           document.body.classList.remove("rtl");
         }
 
+        // update texts
         document.querySelectorAll("[data-i18n]").forEach(el=>{
           const key = el.getAttribute("data-i18n");
           if(dict[lang][key]) el.textContent = dict[lang][key];
         });
 
+        // update placeholders
         document.querySelectorAll("[data-i18n-ph]").forEach(el=>{
           const key = el.getAttribute("data-i18n-ph");
           if(dict[lang][key]) el.setAttribute("placeholder", dict[lang][key]);
         });
 
-        // Update WhatsApp links with correct message per language
-        const msg = (lang === "ar") ? waMessageAR : waMessageEN;
-        const waLink1 = makeWhatsAppLink(WA_NUMBERS[0], msg);
-        const waLink2 = makeWhatsAppLink(WA_NUMBERS[1], msg);
+        // update WhatsApp links with message
+        const w1 = waLink(WA_1, lang);
+        const w2 = waLink(WA_2, lang);
 
-        const setHref = (id, href) => { const el = document.getElementById(id); if(el) el.href = href; };
-
-        setHref("wa1", waLink1);
-        setHref("wa2", waLink2);
-        setHref("waPkg", waLink1);
-        setHref("waContact1", waLink1);
-        setHref("waContact2", waLink2);
-        setHref("waBtn1", waLink1);
-        setHref("waBtn2", waLink2);
+        const ids = ["whLink1","whLink2","whContact1","whContact2","whMainCta","whCtaPackages"];
+        ids.forEach(id=>{
+          const el = document.getElementById(id);
+          if(!el) return;
+          if(id.toLowerCase().includes("2")) el.href = w2;
+          else el.href = w1; // default to WA_1
+        });
 
         localStorage.setItem("tripesta_lang", lang);
       }
@@ -953,41 +667,6 @@
         const current = document.body.getAttribute("data-lang") || "en";
         applyLang(current === "en" ? "ar" : "en");
       });
-
-      // ============ HERO SLIDER (11 images with fade) ============
-      const bg1 = document.getElementById("heroBg1");
-      const bg2 = document.getElementById("heroBg2");
-
-      let current = 0;
-      let showingFirst = true;
-
-      function setBg(el, url) {
-        el.style.backgroundImage = `url('${url}')`;
-      }
-
-      // initial
-      setBg(bg1, HERO_IMAGES[0]);
-      bg1.classList.add("is-visible");
-      setBg(bg2, HERO_IMAGES[1] || HERO_IMAGES[0]);
-
-      const SLIDE_DELAY_MS = 4500;   // time each image stays
-      const FADE_MS = 900;           // fade duration
-
-      function nextSlide() {
-        const nextIndex = (current + 1) % HERO_IMAGES.length;
-        const incoming = showingFirst ? bg2 : bg1;
-        const outgoing = showingFirst ? bg1 : bg2;
-
-        setBg(incoming, HERO_IMAGES[nextIndex]);
-
-        incoming.classList.add("is-visible");
-        outgoing.classList.remove("is-visible");
-
-        showingFirst = !showingFirst;
-        current = nextIndex;
-      }
-
-      setInterval(nextSlide, SLIDE_DELAY_MS);
     </script>
   </body>
 </html>
