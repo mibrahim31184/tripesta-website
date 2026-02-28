@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tripesta Travel | Flights, Hotels, Visa, Tours</title>
+  <title>Tripesta Travel | Flights, Hotels, Tourist Visas</title>
   <meta name="description" content="Tripesta Travel - Flight tickets anywhere in the world, hotels, tourist visas, and tour packages." />
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23ff7a18'>✈️</text></svg>" />
@@ -19,7 +19,6 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-  <!-- Main Styles (preserved) -->
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
@@ -30,14 +29,14 @@
       --dark-card: rgba(20, 26, 40, 0.7);
     }
     body {
-      font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+      font-family: 'Poppins', sans-serif;
       background: var(--ink);
       color: #fff;
     }
     body.rtl {
-      font-family: 'Tajawal', system-ui, -apple-system, sans-serif;
+      font-family: 'Tajawal', sans-serif;
     }
-    /* Navbar */
+    /* Glass Navbar */
     .glass-nav {
       background: rgba(10, 16, 28, 0.45);
       backdrop-filter: blur(14px);
@@ -47,27 +46,37 @@
     .glass-nav.scrolled {
       background: rgba(10, 16, 28, 0.75);
     }
-    /* Logo */
-    .brand-logo {
-      width: 55px;
-      height: 55px;
-      object-fit: contain;
-      border-radius: 12px;
-      background: linear-gradient(145deg, #1e2a3a, #0f1a2c);
-      padding: 5px;
-      border: 2px solid var(--orange);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    /* Original Logo - Tripesta. Travel */
+    .brand-logo-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
-    .brand-name {
+    .brand-tripesta {
+      font-size: 2rem;
       font-weight: 800;
-      font-size: 1.7rem;
-      color: #fff;
-      margin-right: 8px;
       letter-spacing: 0.5px;
     }
-    .brand-subname .t1 { color: var(--purple); }
-    .brand-subname .t2 { color: var(--green); }
-    .brand-subname .t3 { color: var(--orange); }
+    .brand-tripesta .tri {
+      color: var(--purple);
+    }
+    .brand-tripesta .pesta {
+      color: var(--green);
+    }
+    .brand-tripesta .dot {
+      color: var(--orange);
+    }
+    .brand-travel {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--orange);
+      margin-left: 5px;
+    }
+    .rtl .brand-travel {
+      margin-right: 5px;
+      margin-left: 0;
+    }
+    /* Buttons */
     .btn-brand {
       background: var(--orange) !important;
       border-color: var(--orange) !important;
@@ -99,7 +108,7 @@
       background: linear-gradient(90deg, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
       z-index: 2;
     }
-    body.rtl .hero-overlay {
+    .rtl .hero-overlay {
       background: linear-gradient(270deg, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
     }
     .hero-slider {
@@ -150,6 +159,7 @@
       padding: 24px 18px;
       height: 100%;
       transition: 0.3s;
+      text-align: center;
     }
     .feature-card:hover {
       background: rgba(255,122,24,0.1);
@@ -166,7 +176,27 @@
       border: 1px solid rgba(255,122,24,0.4);
       color: var(--orange);
       font-size: 32px;
-      margin-bottom: 18px;
+      margin: 0 auto 18px auto;
+    }
+    /* Airline icons */
+    .airline-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 10px auto;
+      font-size: 24px;
+      color: var(--orange);
+    }
+    .airline-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 15px 5px;
+      text-align: center;
     }
     /* Package cards */
     .package-card {
@@ -236,47 +266,61 @@
     }
     .rtl { direction: rtl; }
     .navbar-nav { align-items: center; }
-    @media (max-width: 991px) { .brand-name { font-size: 1.3rem; } .brand-logo { width: 45px; height: 45px; } }
-    /* Review cards */
+    /* Review cards with images */
     .review-card {
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 24px;
       padding: 24px;
       height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .reviewer-img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--orange);
+      margin-bottom: 12px;
     }
     .stars { color: gold; }
+    @media (max-width: 768px) {
+      .brand-tripesta, .brand-travel { font-size: 1.5rem; }
+      .section-title { font-size: 2.2rem; }
+    }
   </style>
 </head>
 <body data-lang="en">
-  <!-- Navbar -->
+  <!-- Navbar with original colored logo: Tripesta. Travel -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top glass-nav" id="mainNav">
     <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="#page-top">
-        <img src="assets/img/tripesta-logo.png" alt="Tripesta" class="brand-logo me-2" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'55\' height=\'55\' viewBox=\'0 0 100 100\'%3E%3Ccircle cx=\'50\' cy=\'50\' r=\'45\' fill=\'%23222e44\' stroke=\'%23ff7a18\' stroke-width=\'4\'/%3E%3Ctext x=\'22\' y=\'70\' font-size=\'50\' fill=\'%23ff7a18\' font-family=\'Arial\'%3E✈️%3C/text%3E%3C/svg%3E';">
-        <span class="brand-name">Tripesta</span>
-        <span class="brand-subname">
-          <span class="t1">Tra</span><span class="t2">vel</span><span class="t3">.</span>
-        </span>
+      <a class="navbar-brand" href="#page-top">
+        <div class="brand-logo-container">
+          <span class="brand-tripesta">
+            <span class="tri">Tri</span><span class="pesta">pesta</span><span class="dot">.</span>
+          </span>
+          <span class="brand-travel">Travel</span>
+        </div>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ms-auto py-2 py-lg-0 gap-lg-2">
-          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="#flights">Flights</a></li>
-          <li class="nav-item"><a class="nav-link" href="#packages">Packages</a></li>
-          <li class="nav-item"><a class="nav-link" href="#hotels">Hotels</a></li>
-          <li class="nav-item"><a class="nav-link" href="#visa">Visa</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services" data-i18n="nav.services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#flights" data-i18n="nav.flights">Flights</a></li>
+          <li class="nav-item"><a class="nav-link" href="#packages" data-i18n="nav.packages">Packages</a></li>
+          <li class="nav-item"><a class="nav-link" href="#hotels" data-i18n="nav.hotels">Hotels</a></li>
+          <li class="nav-item"><a class="nav-link" href="#visa" data-i18n="nav.visa">Visa</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about" data-i18n="nav.about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonials" data-i18n="nav.reviews">Reviews</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact" data-i18n="nav.contact">Contact</a></li>
           <li class="nav-item">
             <button class="btn btn-ghost btn-sm lang-btn" id="langToggle">عربي</button>
           </li>
           <li class="nav-item">
-            <a class="btn btn-brand" href="#contact">Book Now <i class="fa-solid fa-arrow-right ms-1"></i></a>
+            <a class="btn btn-brand" href="#contact" data-i18n="nav.book">Book Now <i class="fa-solid fa-arrow-right ms-1"></i></a>
           </li>
         </ul>
       </div>
@@ -295,26 +339,30 @@
     <div class="container hero-content">
       <div class="row align-items-center g-5">
         <div class="col-lg-7">
-          <div class="badge-pill mb-4"><i class="fa-solid fa-plane-departure"></i> Your Complete Travel Partner</div>
-          <h1 class="hero-title">Explore the World with <span class="accent">Tripesta</span></h1>
-          <p class="hero-sub fs-4 my-4">Flights • Hotels • Tourist Visas • Packages • Tours — Best deals & fast support.</p>
+          <div class="badge-pill mb-4"><i class="fa-solid fa-plane-departure"></i> <span data-i18n="hero.badge">Your Complete Travel Partner</span></div>
+          <h1 class="hero-title"><span data-i18n="hero.title1">Explore the World with</span> <span class="accent" data-i18n="hero.brandWord">Tripesta</span></h1>
+          <p class="hero-sub fs-4 my-4" data-i18n="hero.sub">Flights • Hotels • Tourist Visas • Packages • Tours — Best deals & fast support.</p>
           <div class="d-flex flex-wrap gap-3">
-            <a class="btn btn-brand btn-lg" href="#packages">View Packages <i class="fa-solid fa-suitcase-rolling ms-2"></i></a>
-            <a class="btn btn-ghost btn-lg" href="#contact">Get a Quote <i class="fa-regular fa-paper-plane ms-2"></i></a>
+            <a class="btn btn-brand btn-lg" href="#packages" data-i18n="hero.cta1">View Packages <i class="fa-solid fa-suitcase-rolling ms-2"></i></a>
+            <a class="btn btn-ghost btn-lg" href="#contact" data-i18n="hero.cta2">Get a Quote <i class="fa-regular fa-paper-plane ms-2"></i></a>
           </div>
         </div>
         <div class="col-lg-5">
           <div class="glass-card p-4">
-            <h4 class="mb-3">Quick Inquiry</h4>
+            <h4 class="mb-3" data-i18n="quick.title">Quick Inquiry</h4>
             <form action="mailto:info@tripestatravels.com" method="post" enctype="text/plain">
-              <input class="form-control mb-2" type="text" name="Name" placeholder="Your Name *" required>
-              <input class="form-control mb-2" type="email" name="Email" placeholder="Your Email *" required>
-              <input class="form-control mb-2" type="text" name="Destination" placeholder="Destination (e.g., Georgia)">
-              <select class="form-select mb-2" name="Service">
-                <option>Tour Package</option><option>Hotel</option><option>Flight</option><option>Visa</option>
+              <input class="form-control mb-2" type="text" name="name" placeholder="Your Name *" data-i18n-ph="ph.name" required>
+              <input class="form-control mb-2" type="email" name="email" placeholder="Your Email *" data-i18n-ph="ph.email" required>
+              <input class="form-control mb-2" type="text" name="destination" placeholder="Destination (e.g., Georgia)" data-i18n-ph="ph.destination">
+              <select class="form-select mb-2" name="service">
+                <option value="package" data-i18n="service.package">Tour Package</option>
+                <option value="hotel" data-i18n="service.hotel">Hotel</option>
+                <option value="flight" data-i18n="service.flight">Flight</option>
+                <option value="visa" data-i18n="service.visa">Visa</option>
               </select>
-              <button class="btn btn-brand w-100 btn-lg mt-2" type="submit">Send Request <i class="fa-regular fa-paper-plane ms-2"></i></button>
-              <div class="small text-muted mt-3 text-center">Or WhatsApp: 
+              <button class="btn btn-brand w-100 btn-lg mt-2" type="submit" data-i18n="quick.send">Send Request <i class="fa-regular fa-paper-plane ms-2"></i></button>
+              <div class="small text-muted mt-3 text-center">
+                <span data-i18n="quick.or">Or WhatsApp:</span> 
                 <span class="wh-inline">
                   <a class="link-soft ltr" id="whLink1" href="#" target="_blank">+971 52 177 4320</a> |
                   <a class="link-soft ltr" id="whLink2" href="#" target="_blank">+971 50 366 1905</a>
@@ -327,100 +375,180 @@
     </div>
   </header>
 
-  <!-- Services Section -->
+  <!-- Services Section with Icons -->
   <section class="section section-dark py-5" id="services">
     <div class="container">
-      <h2 class="section-title text-center">Our Services</h2>
-      <p class="section-sub text-center mb-5">Everything you need for a complete trip – Flights, Hotels, Tourist Visas, Packages</p>
+      <h2 class="section-title text-center" data-i18n="services.title">Services</h2>
+      <p class="section-sub text-center mb-5" data-i18n="services.sub">Everything you need for a complete trip – Flights, Hotels, Tourist Visas, Packages</p>
       <div class="row g-4">
-        <div class="col-md-6 col-lg-3"><div class="feature-card text-center"><div class="icon-bubble mx-auto"><i class="fa-solid fa-plane"></i></div><h4>Flight Booking</h4><p>Best options, smart routes, flexible tickets to anywhere.</p></div></div>
-        <div class="col-md-6 col-lg-3"><div class="feature-card text-center"><div class="icon-bubble mx-auto"><i class="fa-solid fa-hotel"></i></div><h4>Hotel Booking</h4><p>Family, luxury, or budget – worldwide stays.</p></div></div>
-        <div class="col-md-6 col-lg-3"><div class="feature-card text-center"><div class="icon-bubble mx-auto"><i class="fa-solid fa-passport"></i></div><h4>Tourist Visas</h4><p>Fast visa processing with high success rate.</p></div></div>
-        <div class="col-md-6 col-lg-3"><div class="feature-card text-center"><div class="icon-bubble mx-auto"><i class="fa-solid fa-suitcase-rolling"></i></div><h4>Tour Packages</h4><p>Ready-made & custom itineraries.</p></div></div>
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="icon-bubble"><i class="fa-solid fa-plane"></i></div>
+            <h4 data-i18n="services.flights">Flight Booking</h4>
+            <p data-i18n="services.flightsP">Best options, smart routes, flexible tickets.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="icon-bubble"><i class="fa-solid fa-hotel"></i></div>
+            <h4 data-i18n="services.hotels">Hotel Booking</h4>
+            <p data-i18n="services.hotelsP">Family, luxury, or budget – worldwide stays.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="icon-bubble"><i class="fa-solid fa-passport"></i></div>
+            <h4 data-i18n="services.visa">Tourist Visas</h4>
+            <p data-i18n="services.visaP">Fast visa processing with high success rate.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="icon-bubble"><i class="fa-solid fa-suitcase-rolling"></i></div>
+            <h4 data-i18n="services.packages">Tour Packages</h4>
+            <p data-i18n="services.packagesP">Ready-made & custom itineraries.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Flights Section (Specialized) -->
+  <!-- Flights Section with Airline Icons -->
   <section class="section py-5" id="flights">
     <div class="container">
-      <h2 class="section-title text-center">Flight Specialists</h2>
-      <p class="section-sub text-center mb-5">We provide flight tickets to anywhere in the world with all airlines at the cheapest prices</p>
+      <h2 class="section-title text-center" data-i18n="flights.title">Flight Specialists</h2>
+      <p class="section-sub text-center mb-5" data-i18n="flights.sub">We provide flight tickets to anywhere in the world with all airlines at the cheapest prices</p>
       <div class="row g-4 align-items-center">
         <div class="col-lg-6">
           <div class="glass-card p-5 text-center">
             <i class="fa-solid fa-globe fa-4x mb-4" style="color:var(--orange);"></i>
-            <h3>200+ Global Destinations</h3>
-            <p class="fs-5">We work with all airlines (Emirates, Etihad, Saudia, Flydubai, and more) to guarantee you the best fare.</p>
+            <h3 data-i18n="flights.destinations">200+ Global Destinations</h3>
+            <p class="fs-5" data-i18n="flights.desc">We work with all airlines to guarantee you the best fare.</p>
             <div class="d-flex justify-content-around mt-4">
-              <span><i class="fa-solid fa-ticket-alt"></i> Flexible tickets</span>
-              <span><i class="fa-solid fa-clock"></i> 24/7 support</span>
-              <span><i class="fa-solid fa-wallet"></i> Best prices</span>
+              <span><i class="fa-solid fa-ticket-alt"></i> <span data-i18n="flights.flex">Flexible tickets</span></span>
+              <span><i class="fa-solid fa-clock"></i> <span data-i18n="flights.support">24/7 support</span></span>
+              <span><i class="fa-solid fa-wallet"></i> <span data-i18n="flights.price">Best prices</span></span>
             </div>
           </div>
         </div>
         <div class="col-lg-6">
           <div class="row g-3">
-            <div class="col-6"><div class="feature-card text-center p-3"><i class="fa-solid fa-plane-departure fa-2x"></i><h6>Emirates</h6></div></div>
-            <div class="col-6"><div class="feature-card text-center p-3"><i class="fa-solid fa-plane-up fa-2x"></i><h6>Etihad</h6></div></div>
-            <div class="col-6"><div class="feature-card text-center p-3"><i class="fa-solid fa-plane fa-2x"></i><h6>Saudia</h6></div></div>
-            <div class="col-6"><div class="feature-card text-center p-3"><i class="fa-solid fa-plane-slash fa-2x"></i><h6>Flydubai</h6></div></div>
+            <div class="col-4 col-md-3">
+              <div class="airline-card">
+                <div class="airline-icon"><i class="fa-solid fa-plane"></i></div>
+                <h6>Emirates</h6>
+              </div>
+            </div>
+            <div class="col-4 col-md-3">
+              <div class="airline-card">
+                <div class="airline-icon"><i class="fa-solid fa-plane-up"></i></div>
+                <h6>Etihad</h6>
+              </div>
+            </div>
+            <div class="col-4 col-md-3">
+              <div class="airline-card">
+                <div class="airline-icon"><i class="fa-solid fa-plane"></i></div>
+                <h6>Saudia</h6>
+              </div>
+            </div>
+            <div class="col-4 col-md-3">
+              <div class="airline-card">
+                <div class="airline-icon"><i class="fa-solid fa-plane-slash"></i></div>
+                <h6>Flydubai</h6>
+              </div>
+            </div>
+            <div class="col-4 col-md-3">
+              <div class="airline-card">
+                <div class="airline-icon"><i class="fa-solid fa-plane"></i></div>
+                <h6>Air Arabia</h6>
+              </div>
+            </div>
+            <div class="col-4 col-md-3">
+              <div class="airline-card">
+                <div class="airline-icon"><i class="fa-solid fa-plane"></i></div>
+                <h6>Flynas</h6>
+              </div>
+            </div>
+            <div class="col-4 col-md-3">
+              <div class="airline-card">
+                <div class="airline-icon"><i class="fa-solid fa-plane"></i></div>
+                <h6>Qatar</h6>
+              </div>
+            </div>
+            <div class="col-4 col-md-3">
+              <div class="airline-card">
+                <div class="airline-icon"><i class="fa-solid fa-plane"></i></div>
+                <h6>Turkish</h6>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Packages Section (Correct images per country) -->
+  <!-- Packages Section with Correct Images -->
   <section class="section section-dark py-5" id="packages">
     <div class="container">
-      <h2 class="section-title text-center">Tour Packages</h2>
-      <p class="section-sub text-center mb-5">Georgia, Turkey, Azerbaijan, Poland, Maldives, Thailand, Saudi (Makkah & Madinah)</p>
+      <h2 class="section-title text-center" data-i18n="packages.title">Tour Packages</h2>
+      <p class="section-sub text-center mb-5" data-i18n="packages.sub">Georgia, Turkey, Azerbaijan, Poland, Maldives, Thailand, Saudi (Makkah & Madinah)</p>
       <div class="row g-4">
         <!-- Georgia -->
-        <div class="col-md-6 col-lg-4"><div class="package-card"><div class="package-img" style="background-image:url('https://images.pexels.com/photos/1683543/pexels-photo-1683543.jpeg?auto=compress&cs=tinysrgb&w=600');"></div><div class="package-body"><h4>Georgia Escape</h4><span class="chip">5 days</span><p class="mt-2">Tbilisi + Kazbegi + Gudauri</p></div></div></div>
+        <div class="col-md-6 col-lg-4"><div class="package-card"><div class="package-img" style="background-image:url('https://images.pexels.com/photos/1683543/pexels-photo-1683543.jpeg?auto=compress&cs=tinysrgb&w=600');"></div><div class="package-body"><h4 data-i18n="package.georgia">Georgia Escape</h4><span class="chip" data-i18n="package.georgiaDays">5 days</span><p class="mt-2" data-i18n="package.georgiaDesc">Tbilisi + Kazbegi + Gudauri</p></div></div></div>
         <!-- Turkey -->
-        <div class="col-md-6 col-lg-4"><div class="package-card"><div class="package-img" style="background-image:url('https://images.pexels.com/photos/1371360/pexels-photo-1371360.jpeg?auto=compress&cs=tinysrgb&w=600');"></div><div class="package-body"><h4>Turkish Delight</h4><span class="chip">7 days</span><p class="mt-2">Istanbul + Cappadocia + Pamukkale</p></div></div></div>
-        <!-- Azerbaijan -->
-        <div class="col-md-6 col-lg-4"><div class="package-card"><div class="package-img" style="background-image:url('https://images.pexels.com/photos/372282/pexels-photo-372282.jpeg?auto=compress&cs=tinysrgb&w=600');"></div><div class="package-body"><h4>Azerbaijan</h4><span class="chip">4 days</span><p class="mt-2">Baku + Gabala + Caspian Sea</p></div></div></div>
-        <!-- Poland -->
-        <div class="col-md-6 col-lg-4"><div class="package-card"><div class="package-img" style="background-image:url('https://images.pexels.com/photos/1603650/pexels-photo-1603650.jpeg?auto=compress&cs=tinysrgb&w=600');"></div><div class="package-body"><h4>Poland Classic</h4><span class="chip">6 days</span><p class="mt-2">Warsaw + Krakow + Auschwitz</p></div></div></div>
+        <div class="col-md-6 col-lg-4"><div class="package-card"><div class="package-img" style="background-image:url('https://images.pexels.com/photos/1371360/pexels-photo-1371360.jpeg?auto=compress&cs=tinysrgb&w=600');"></div><div class="package-body"><h4 data-i18n="package.turkey">Turkish Delight</h4><span class="chip" data-i18n="package.turkeyDays">7 days</span><p class="mt-2" data-i18n="package.turkeyDesc">Istanbul + Cappadocia + Pamukkale</p></div></div></div>
+        <!-- Azerbaijan - Correct Image of Baku -->
+        <div class="col-md-6 col-lg-4"><div class="package-card"><div class="package-img" style="background-image:url('https://images.pexels.com/photos/13706753/pexels-photo-13706753.jpeg?auto=compress&cs=tinysrgb&w=600');"></div><div class="package-body"><h4 data-i18n="package.azerbaijan">Azerbaijan</h4><span class="chip" data-i18n="package.azerbaijanDays">4 days</span><p class="mt-2" data-i18n="package.azerbaijanDesc">Baku + Gabala + Caspian Sea</p></div></div></div>
+        <!-- Poland - Correct Image of Warsaw -->
+        <div class="col-md-6 col-lg-4"><div class="package-card"><div class="package-img" style="background-image:url('https://images.pexels.com/photos/1321831/pexels-photo-1321831.jpeg?auto=compress&cs=tinysrgb&w=600');"></div><div class="package-body"><h4 data-i18n="package.poland">Poland Classic</h4><span class="chip" data-i18n="package.polandDays">6 days</span><p class="mt-2" data-i18n="package.polandDesc">Warsaw + Krakow + Auschwitz</p></div></div></div>
         <!-- Maldives -->
-        <div class="col-md-6 col-lg-4"><div class="package-card"><div class="package-img" style="background-image:url('https://images.pexels.com/photos/1483053/pexels-photo-1483053.jpeg?auto=compress&cs=tinysrgb&w=600');"></div><div class="package-body"><h4>Maldives</h4><span class="chip">7 days</span><p class="mt-2">Overwater villa + 5* resort</p></div></div></div>
+        <div class="col-md-6 col-lg-4"><div class="package-card"><div class="package-img" style="background-image:url('https://images.pexels.com/photos/1483053/pexels-photo-1483053.jpeg?auto=compress&cs=tinysrgb&w=600');"></div><div class="package-body"><h4 data-i18n="package.maldives">Maldives</h4><span class="chip" data-i18n="package.maldivesDays">7 days</span><p class="mt-2" data-i18n="package.maldivesDesc">Overwater villa + 5* resort</p></div></div></div>
         <!-- Thailand -->
-        <div class="col-md-6 col-lg-4"><div class="package-card"><div class="package-img" style="background-image:url('https://images.pexels.com/photos/2166559/pexels-photo-2166559.jpeg?auto=compress&cs=tinysrgb&w=600');"></div><div class="package-body"><h4>Thailand</h4><span class="chip">8 days</span><p class="mt-2">Bangkok + Phuket + Chiang Mai</p></div></div></div>
-        <!-- Saudi Arabia (Tourist) -->
-        <div class="col-md-6 col-lg-4"><div class="package-card"><div class="package-img" style="background-image:url('https://images.pexels.com/photos/402028/pexels-photo-402028.jpeg?auto=compress&cs=tinysrgb&w=600');"></div><div class="package-body"><h4>Saudi Arabia</h4><span class="chip">5 days</span><p class="mt-2">Makkah (visit), Madinah, Jeddah</p></div></div></div>
+        <div class="col-md-6 col-lg-4"><div class="package-card"><div class="package-img" style="background-image:url('https://images.pexels.com/photos/2166559/pexels-photo-2166559.jpeg?auto=compress&cs=tinysrgb&w=600');"></div><div class="package-body"><h4 data-i18n="package.thailand">Thailand</h4><span class="chip" data-i18n="package.thailandDays">8 days</span><p class="mt-2" data-i18n="package.thailandDesc">Bangkok + Phuket + Chiang Mai</p></div></div></div>
+        <!-- Saudi Arabia - Correct Image of Makkah -->
+        <div class="col-md-6 col-lg-4"><div class="package-card"><div class="package-img" style="background-image:url('https://images.pexels.com/photos/402028/pexels-photo-402028.jpeg?auto=compress&cs=tinysrgb&w=600');"></div><div class="package-body"><h4 data-i18n="package.saudi">Saudi Arabia</h4><span class="chip" data-i18n="package.saudiDays">5 days</span><p class="mt-2" data-i18n="package.saudiDesc">Makkah (visit), Madinah, Jeddah</p></div></div></div>
       </div>
-      <div class="text-center mt-5"><a class="btn btn-ghost btn-lg" id="whCtaPackages" href="#" target="_blank"><i class="fa-brands fa-whatsapp ms-2"></i> WhatsApp to customize your package</a></div>
+      <div class="text-center mt-5"><a class="btn btn-ghost btn-lg" id="whCtaPackages" href="#" target="_blank"><i class="fa-brands fa-whatsapp ms-2"></i> <span data-i18n="packages.whatsapp">WhatsApp to customize your package</span></a></div>
     </div>
   </section>
 
-  <!-- Hotels Section -->
+  <!-- Hotels Section - English Version -->
   <section class="section py-5" id="hotels">
     <div class="container">
-      <h2 class="section-title text-center">Hotels & Stays</h2>
-      <p class="section-sub text-center mb-5">Choose from top hotels worldwide – family, luxury, budget</p>
+      <h2 class="section-title text-center" data-i18n="hotels.title">Hotels & Stays</h2>
+      <p class="section-sub text-center mb-5" data-i18n="hotels.sub">Choose from top hotels worldwide – family, luxury, budget</p>
       <div class="row g-4 text-center">
-        <div class="col-4"><i class="fa-solid fa-hotel fa-3x" style="color:var(--orange);"></i><h5 class="mt-2">Burj Al Arab</h5><p class="small">Dubai</p></div>
-        <div class="col-4"><i class="fa-solid fa-umbrella-beach fa-3x" style="color:var(--orange);"></i><h5 class="mt-2">Atlantis</h5><p class="small">Dubai</p></div>
-        <div class="col-4"><i class="fa-solid fa-landmark fa-3x" style="color:var(--orange);"></i><h5 class="mt-2">Emirates Palace</h5><p class="small">Abu Dhabi</p></div>
+        <div class="col-md-4">
+          <i class="fa-solid fa-hotel fa-3x" style="color:var(--orange);"></i>
+          <h5 class="mt-2">Burj Al Arab</h5>
+          <p class="small">Dubai</p>
+        </div>
+        <div class="col-md-4">
+          <i class="fa-solid fa-umbrella-beach fa-3x" style="color:var(--orange);"></i>
+          <h5 class="mt-2">Atlantis</h5>
+          <p class="small">Dubai</p>
+        </div>
+        <div class="col-md-4">
+          <i class="fa-solid fa-landmark fa-3x" style="color:var(--orange);"></i>
+          <h5 class="mt-2">Emirates Palace</h5>
+          <p class="small">Abu Dhabi</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Visa Section (Tourist focus) -->
+  <!-- Visa Section -->
   <section class="section section-dark py-5" id="visa">
     <div class="container">
-      <h2 class="section-title text-center">Tourist Visas</h2>
-      <p class="section-sub text-center mb-5">We provide all types of tourist visas worldwide with high success rate</p>
+      <h2 class="section-title text-center" data-i18n="visa.title">Tourist Visas</h2>
+      <p class="section-sub text-center mb-5" data-i18n="visa.sub">We provide all types of tourist visas worldwide with high success rate</p>
       <div class="row g-4">
-        <div class="col-md-4"><div class="feature-card text-center"><i class="fa-solid fa-passport fa-3x mb-3" style="color:var(--orange);"></i><h5>UAE Visa</h5><p>Visit & tourist visas for UAE.</p></div></div>
-        <div class="col-md-4"><div class="feature-card text-center"><i class="fa-solid fa-globe fa-3x mb-3" style="color:var(--orange);"></i><h5>Schengen</h5><p>European tourist visas, fast track.</p></div></div>
-        <div class="col-md-4"><div class="feature-card text-center"><i class="fa-solid fa-flag-usa fa-3x mb-3" style="color:var(--orange);"></i><h5>UK & USA</h5><p>Consultation & complete file preparation.</p></div></div>
-        <div class="col-md-4"><div class="feature-card text-center"><i class="fa-solid fa-earth-asia fa-3x mb-3" style="color:var(--orange);"></i><h5>Asia Visas</h5><p>Turkey, Georgia, Thailand, Azerbaijan, China.</p></div></div>
-        <div class="col-md-4"><div class="feature-card text-center"><i class="fa-solid fa-mosque fa-3x mb-3" style="color:var(--orange);"></i><h5>Saudi Tourist Visa</h5><p>Tourist visas for Saudi (Makkah, Madinah, Riyadh).</p></div></div>
-        <div class="col-md-4"><div class="feature-card text-center"><i class="fa-solid fa-umbrella-beach fa-3x mb-3" style="color:var(--orange);"></i><h5>Maldives</h5><p>Visa on arrival & permits.</p></div></div>
+        <div class="col-md-4"><div class="feature-card"><i class="fa-solid fa-passport fa-3x mb-3" style="color:var(--orange);"></i><h5 data-i18n="visa.uae">UAE Visa</h5><p data-i18n="visa.uaeDesc">Visit & tourist visas for UAE.</p></div></div>
+        <div class="col-md-4"><div class="feature-card"><i class="fa-solid fa-globe fa-3x mb-3" style="color:var(--orange);"></i><h5 data-i18n="visa.schengen">Schengen</h5><p data-i18n="visa.schengenDesc">European tourist visas, fast track.</p></div></div>
+        <div class="col-md-4"><div class="feature-card"><i class="fa-solid fa-flag-usa fa-3x mb-3" style="color:var(--orange);"></i><h5 data-i18n="visa.ukusa">UK & USA</h5><p data-i18n="visa.ukusaDesc">Consultation & complete file preparation.</p></div></div>
+        <div class="col-md-4"><div class="feature-card"><i class="fa-solid fa-earth-asia fa-3x mb-3" style="color:var(--orange);"></i><h5 data-i18n="visa.asia">Asia Visas</h5><p data-i18n="visa.asiaDesc">Turkey, Georgia, Thailand, Azerbaijan, China.</p></div></div>
+        <div class="col-md-4"><div class="feature-card"><i class="fa-solid fa-mosque fa-3x mb-3" style="color:var(--orange);"></i><h5 data-i18n="visa.saudi">Saudi Tourist Visa</h5><p data-i18n="visa.saudiDesc">Tourist visas for Saudi.</p></div></div>
+        <div class="col-md-4"><div class="feature-card"><i class="fa-solid fa-umbrella-beach fa-3x mb-3" style="color:var(--orange);"></i><h5 data-i18n="visa.maldives">Maldives</h5><p data-i18n="visa.maldivesDesc">Visa on arrival & permits.</p></div></div>
       </div>
     </div>
   </section>
@@ -428,31 +556,33 @@
   <!-- About Section -->
   <section class="section py-5" id="about">
     <div class="container">
-      <h2 class="section-title text-center">About Tripesta</h2>
-      <p class="section-sub text-center mb-4">Since 2014, we've been helping travelers plan smooth trips</p>
+      <h2 class="section-title text-center" data-i18n="about.title">About Us</h2>
+      <p class="section-sub text-center mb-4" data-i18n="about.sub">Since 2014, we've been helping travelers plan smooth trips</p>
       <div class="row align-items-stretch g-4">
-        <div class="col-lg-6"><div class="contact-card p-4 h-100"><h3>Established in 2014</h3><p class="fs-5">Tripesta Travel was founded in 2014 and has achieved strong success in the travel industry — from international packages to UAE activities, hotels, transport, and visa services.</p><ul class="list-unstyled fs-5"><li><i class="fa-regular fa-circle-check ms-2" style="color:var(--green);"></i> Tailor-made packages with trusted partners</li><li><i class="fa-regular fa-circle-check ms-2" style="color:var(--green);"></i> Fast customer support & clear trip planning</li><li><i class="fa-regular fa-circle-check ms-2" style="color:var(--green);"></i> Hotels, transfers, tours, and visas</li></ul></div></div>
-        <div class="col-lg-6"><div class="contact-card p-4 h-100"><h4><i class="fa-solid fa-trophy" style="color:gold;"></i> Achievements</h4><ul class="list-unstyled"><li>✓ 10,000+ happy travelers</li><li>✓ Partners with 70+ airlines & hotels</li><li>✓ 98% visa success rate</li><li>✓ Multilingual team (Arabic, English, Urdu)</li></ul><div class="mt-3"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24241.491735919422!2d55.43367833840664!3d25.420896341205225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef5f925866c326b%3A0x2c398d47d0c3e390!2sAjman%20Media%20City!5e1!3m2!1sen!2sae!4v1772242645368!5m2!1sen!2sae" width="100%" height="200" style="border:0; border-radius:16px;" allowfullscreen="" loading="lazy"></iframe></div></div></div>
+        <div class="col-lg-6"><div class="contact-card p-4 h-100"><h3 data-i18n="about.est">Established in 2014</h3><p class="fs-5" data-i18n="about.p1">Tripesta Travel was founded in 2014 and has achieved strong success in the travel industry — from international packages to UAE activities, hotels, transport, and tourist visa services.</p><ul class="list-unstyled fs-5"><li><i class="fa-regular fa-circle-check me-2" style="color:var(--green);"></i> <span data-i18n="about.li1">Tailor-made packages with trusted partners</span></li><li><i class="fa-regular fa-circle-check me-2" style="color:var(--green);"></i> <span data-i18n="about.li2">Fast customer support & clear trip planning</span></li><li><i class="fa-regular fa-circle-check me-2" style="color:var(--green);"></i> <span data-i18n="about.li3">Hotels, transfers, tours, and visas</span></li></ul></div></div>
+        <div class="col-lg-6"><div class="contact-card p-4 h-100"><h4><i class="fa-solid fa-trophy" style="color:gold;"></i> <span data-i18n="about.achievements">Achievements</span></h4><ul class="list-unstyled"><li>✓ <span data-i18n="about.ach1">10,000+ happy travelers</span></li><li>✓ <span data-i18n="about.ach2">Partners with 70+ airlines & hotels</span></li><li>✓ <span data-i18n="about.ach3">98% visa success rate</span></li><li>✓ <span data-i18n="about.ach4">Multilingual team (Arabic, English, Filipino)</span></li></ul><div class="mt-3"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24241.491735919422!2d55.43367833840664!3d25.420896341205225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef5f925866c326b%3A0x2c398d47d0c3e390!2sAjman%20Media%20City!5e1!3m2!1sen!2sae!4v1772242645368!5m2!1sen!2sae" width="100%" height="200" style="border:0; border-radius:16px;" allowfullscreen="" loading="lazy"></iframe></div></div></div>
       </div>
     </div>
   </section>
 
-  <!-- Testimonials (with specific names & comments) -->
+  <!-- Testimonials with images -->
   <section class="section section-dark py-5" id="testimonials">
     <div class="container">
-      <h2 class="section-title text-center">Customer Reviews</h2>
-      <p class="section-sub text-center mb-5">Real service, real support – we care about your trip.</p>
+      <h2 class="section-title text-center" data-i18n="reviews.title">Customer Reviews</h2>
+      <p class="section-sub text-center mb-5" data-i18n="reviews.sub">Real service, real support – we care about your trip.</p>
       <div class="row g-4">
-        <!-- Arabic reviews -->
-        <div class="col-md-4"><div class="review-card"><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><p class="mt-2">"سرعة في الإنجاز وتعامل راقي. سافرت لجورجيا وكانت الرحلة رائعة."</p><h5>– جاسم</h5></div></div>
-        <div class="col-md-4"><div class="review-card"><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><p class="mt-2">"فيزا شنغن خلال 5 أيام. شكراً تريبستا."</p><h5>– سارة</h5></div></div>
-        <div class="col-md-4"><div class="review-card"><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><p class="mt-2">"باقة تركيا كانت متكاملة والفنادق ممتازة. أنصح بالتعامل معهم."</p><h5>– محمد</h5></div></div>
-        <div class="col-md-4"><div class="review-card"><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><p class="mt-2">"حجزت رحلة المالديف، كان كل شيء منظم وسهل. موظفين محترفين."</p><h5>– رزان</h5></div></div>
-        <div class="col-md-4"><div class="review-card"><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><p class="mt-2">"عميل دائم لتريبستا، دائماً يقدمون الأفضل."</p><h5>– عميل تريبستا</h5></div></div>
-        <!-- English reviews -->
-        <div class="col-md-4"><div class="review-card"><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><p class="mt-2">"What an amazing experience! I really enjoyed my trip to Turkey. Smooth booking and great support."</p><h5>– Grace</h5></div></div>
-        <div class="col-md-4"><div class="review-card"><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><p class="mt-2">"Hassle-free booking, fast visa processing, very professional staff."</p><h5>– John</h5></div></div>
-        <div class="col-md-4"><div class="review-card"><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><i class="fa-solid fa-star stars"></i><p class="mt-2">"Best travel agency in UAE! Highly recommended for flights and hotels."</p><h5>– Sarah</h5></div></div>
+        <!-- Jassim -->
+        <div class="col-md-4"><div class="review-card"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Jassim" class="reviewer-img"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="mt-2" data-i18n="review.jasim">"Fast processing and professional service. I traveled to Georgia and it was amazing."</p><h5>Jassim</h5></div></div>
+        <!-- Sarah -->
+        <div class="col-md-4"><div class="review-card"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah" class="reviewer-img"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="mt-2" data-i18n="review.sarah">"Schengen visa in 5 days. Thank you Tripesta."</p><h5>Sarah</h5></div></div>
+        <!-- Mohammed -->
+        <div class="col-md-4"><div class="review-card"><img src="https://randomuser.me/api/portraits/men/46.jpg" alt="Mohammed" class="reviewer-img"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="mt-2" data-i18n="review.mohamed">"Turkey package was complete and hotels were excellent. Highly recommended."</p><h5>Mohammed</h5></div></div>
+        <!-- Razan -->
+        <div class="col-md-4"><div class="review-card"><img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Razan" class="reviewer-img"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="mt-2" data-i18n="review.razan">"Booked Maldives trip, everything was organized and easy. Professional staff."</p><h5>Razan</h5></div></div>
+        <!-- Tripesta Client -->
+        <div class="col-md-4"><div class="review-card"><img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Tripesta Client" class="reviewer-img"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="mt-2" data-i18n="review.client">"Loyal Tripesta customer, they always deliver the best."</p><h5 data-i18n="review.clientName">Tripesta Client</h5></div></div>
+        <!-- Grace -->
+        <div class="col-md-4"><div class="review-card"><img src="https://randomuser.me/api/portraits/women/17.jpg" alt="Grace" class="reviewer-img"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="mt-2" data-i18n="review.grace">"What an amazing experience! I really enjoyed my trip to Turkey. Smooth booking and great support."</p><h5>Grace</h5></div></div>
       </div>
     </div>
   </section>
@@ -460,36 +590,41 @@
   <!-- Contact Section -->
   <section class="section py-5" id="contact">
     <div class="container">
-      <h2 class="section-title text-center">Contact Us</h2>
-      <p class="section-sub text-center mb-5">Send your request – we'll reply quickly with the best offers</p>
+      <h2 class="section-title text-center" data-i18n="contact.title">Contact Us</h2>
+      <p class="section-sub text-center mb-5" data-i18n="contact.sub">Send your request – we'll reply quickly with the best offers</p>
       <div class="row g-4">
         <div class="col-lg-5">
           <div class="contact-card p-4">
-            <h4 class="mb-3">Tripesta Travel</h4>
-            <div class="contact-item"><i class="fa-solid fa-phone"></i><div><span class="d-block">Phone / WhatsApp</span><span class="ltr"><a class="link-soft" id="whContact1" href="#">+971 52 177 4320</a> | <a class="link-soft" id="whContact2" href="#">+971 50 366 1905</a></span></div></div>
-            <div class="contact-item"><i class="fa-solid fa-envelope"></i><div><span>Email</span><br><a class="link-soft ltr" href="mailto:info@tripestatravels.com">info@tripestatravels.com</a></div></div>
-            <div class="contact-item"><i class="fa-solid fa-location-dot"></i><div><span>Location</span><br>Ajman Free Zone - Ajman Media City</div></div>
-            <a class="btn btn-brand w-100 mt-3" id="whMainCta" href="#" target="_blank"><i class="fa-brands fa-whatsapp ms-2"></i>Chat on WhatsApp</a>
+            <h4 class="mb-3" data-i18n="contact.brand">Tripesta Travel</h4>
+            <div class="contact-item"><i class="fa-solid fa-phone"></i><div><span class="d-block" data-i18n="contact.whLabel">Phone / WhatsApp</span><span class="ltr"><a class="link-soft" id="whContact1" href="#">+971 52 177 4320</a> | <a class="link-soft" id="whContact2" href="#">+971 50 366 1905</a></span></div></div>
+            <div class="contact-item"><i class="fa-solid fa-envelope"></i><div><span data-i18n="contact.emailLabel">Email</span><br><a class="link-soft ltr" href="mailto:info@tripestatravels.com">info@tripestatravels.com</a></div></div>
+            <div class="contact-item"><i class="fa-solid fa-location-dot"></i><div><span data-i18n="contact.locLabel">Location</span><br><span data-i18n="contact.locVal">Ajman Free Zone - Ajman Media City</span></div></div>
+            <a class="btn btn-brand w-100 mt-3" id="whMainCta" href="#" target="_blank"><i class="fa-brands fa-whatsapp ms-2"></i> <span data-i18n="contact.whCta">Chat on WhatsApp</span></a>
           </div>
         </div>
         <div class="col-lg-7">
           <div class="contact-card p-4">
             <form action="mailto:info@tripestatravels.com" method="post" enctype="text/plain">
               <div class="row g-3">
-                <div class="col-md-6"><input class="form-control" type="text" name="Name" placeholder="Your Name *" required></div>
-                <div class="col-md-6"><input class="form-control" type="email" name="Email" placeholder="Your Email *" required></div>
-                <div class="col-md-6"><input class="form-control" type="text" name="Phone" placeholder="Your Phone"></div>
-                <div class="col-md-6"><select class="form-select" name="Service"><option>Tour Package</option><option>Hotel</option><option>Flight</option><option>Visa</option></select></div>
-                <div class="col-12"><textarea class="form-control" rows="4" name="Message" placeholder="Your Message *" required></textarea></div>
-                <div class="col-12"><button class="btn btn-brand w-100 btn-lg" type="submit">Send Message <i class="fa-regular fa-paper-plane ms-2"></i></button></div>
+                <div class="col-md-6"><input class="form-control" type="text" name="name" placeholder="Your Name *" data-i18n-ph="ph.name" required></div>
+                <div class="col-md-6"><input class="form-control" type="email" name="email" placeholder="Your Email *" data-i18n-ph="ph.email" required></div>
+                <div class="col-md-6"><input class="form-control" type="text" name="phone" placeholder="Your Phone" data-i18n-ph="ph.phone"></div>
+                <div class="col-md-6"><select class="form-select" name="service">
+                  <option value="package" data-i18n="service.package">Tour Package</option>
+                  <option value="hotel" data-i18n="service.hotel">Hotel</option>
+                  <option value="flight" data-i18n="service.flight">Flight</option>
+                  <option value="visa" data-i18n="service.visa">Visa</option>
+                </select></div>
+                <div class="col-12"><textarea class="form-control" rows="4" name="message" placeholder="Your Message *" data-i18n-ph="ph.message" required></textarea></div>
+                <div class="col-12"><button class="btn btn-brand w-100 btn-lg" type="submit" data-i18n="contact.send">Send Message <i class="fa-regular fa-paper-plane ms-2"></i></button></div>
               </div>
             </form>
           </div>
         </div>
       </div>
       <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center">
-        <div class="small">© 2014–<span id="year"></span> Tripesta Travel. All rights reserved.</div>
-        <div class="small"><a class="link-soft me-3" href="#">Privacy</a><a class="link-soft" href="#">Terms</a></div>
+        <div class="small">© 2014–<span id="year"></span> <span data-i18n="footer.brand">Tripesta Travel</span>. <span data-i18n="footer.rights">All rights reserved.</span></div>
+        <div class="small"><a class="link-soft me-3" href="#" data-i18n="footer.privacy">Privacy</a><a class="link-soft" href="#" data-i18n="footer.terms">Terms</a></div>
       </div>
     </div>
   </section>
@@ -527,29 +662,306 @@
       });
     }
 
-    // Language toggle
-    let currentLang = "en";
-    document.getElementById("langToggle").addEventListener("click", function() {
-      if (currentLang === "en") {
-        document.body.classList.add("rtl"); document.documentElement.lang = "ar"; document.documentElement.dir = "rtl";
-        document.querySelectorAll(".nav-link, .btn-brand").forEach(el => {
-          if (el.textContent.includes("Book")) el.innerHTML = "احجز الآن <i class='fa-solid fa-arrow-left me-1'></i>";
-        });
-        document.querySelectorAll("[data-en]").forEach(el => el.textContent = el.getAttribute("data-ar"));
-        this.textContent = "English";
-        currentLang = "ar";
-      } else {
-        document.body.classList.remove("rtl"); document.documentElement.lang = "en"; document.documentElement.dir = "ltr";
-        document.querySelectorAll(".nav-link, .btn-brand").forEach(el => {
-          if (el.textContent.includes("احجز")) el.innerHTML = "Book Now <i class='fa-solid fa-arrow-right ms-1'></i>";
-        });
-        document.querySelectorAll("[data-ar]").forEach(el => el.textContent = el.getAttribute("data-en"));
-        this.textContent = "عربي";
-        currentLang = "en";
+    // Translation dictionary
+    const dict = {
+      en: {
+        "nav.services": "Services",
+        "nav.flights": "Flights",
+        "nav.packages": "Packages",
+        "nav.hotels": "Hotels",
+        "nav.visa": "Visa",
+        "nav.about": "About",
+        "nav.reviews": "Reviews",
+        "nav.contact": "Contact",
+        "nav.book": "Book Now",
+        "hero.badge": "Your Complete Travel Partner",
+        "hero.title1": "Explore the World with",
+        "hero.brandWord": "Tripesta",
+        "hero.sub": "Flights • Hotels • Tourist Visas • Packages • Tours — Best deals & fast support.",
+        "hero.cta1": "View Packages",
+        "hero.cta2": "Get a Quote",
+        "quick.title": "Quick Inquiry",
+        "quick.send": "Send Request",
+        "quick.or": "Or WhatsApp:",
+        "services.title": "Services",
+        "services.sub": "Everything you need for a complete trip – Flights, Hotels, Tourist Visas, Packages",
+        "services.flights": "Flight Booking",
+        "services.flightsP": "Best options, smart routes, flexible tickets.",
+        "services.hotels": "Hotel Booking",
+        "services.hotelsP": "Family, luxury, or budget – worldwide stays.",
+        "services.visa": "Tourist Visas",
+        "services.visaP": "Fast visa processing with high success rate.",
+        "services.packages": "Tour Packages",
+        "services.packagesP": "Ready-made & custom itineraries.",
+        "flights.title": "Flight Specialists",
+        "flights.sub": "We provide flight tickets to anywhere in the world with all airlines at the cheapest prices",
+        "flights.destinations": "200+ Global Destinations",
+        "flights.desc": "We work with all airlines to guarantee you the best fare.",
+        "flights.flex": "Flexible tickets",
+        "flights.support": "24/7 support",
+        "flights.price": "Best prices",
+        "packages.title": "Tour Packages",
+        "packages.sub": "Georgia, Turkey, Azerbaijan, Poland, Maldives, Thailand, Saudi (Makkah & Madinah)",
+        "packages.whatsapp": "WhatsApp to customize your package",
+        "package.georgia": "Georgia Escape",
+        "package.georgiaDays": "5 days",
+        "package.georgiaDesc": "Tbilisi + Kazbegi + Gudauri",
+        "package.turkey": "Turkish Delight",
+        "package.turkeyDays": "7 days",
+        "package.turkeyDesc": "Istanbul + Cappadocia + Pamukkale",
+        "package.azerbaijan": "Azerbaijan",
+        "package.azerbaijanDays": "4 days",
+        "package.azerbaijanDesc": "Baku + Gabala + Caspian Sea",
+        "package.poland": "Poland Classic",
+        "package.polandDays": "6 days",
+        "package.polandDesc": "Warsaw + Krakow + Auschwitz",
+        "package.maldives": "Maldives",
+        "package.maldivesDays": "7 days",
+        "package.maldivesDesc": "Overwater villa + 5* resort",
+        "package.thailand": "Thailand",
+        "package.thailandDays": "8 days",
+        "package.thailandDesc": "Bangkok + Phuket + Chiang Mai",
+        "package.saudi": "Saudi Arabia",
+        "package.saudiDays": "5 days",
+        "package.saudiDesc": "Makkah (visit), Madinah, Jeddah",
+        "hotels.title": "Hotels & Stays",
+        "hotels.sub": "Choose from top hotels worldwide – family, luxury, budget",
+        "visa.title": "Tourist Visas",
+        "visa.sub": "We provide all types of tourist visas worldwide with high success rate",
+        "visa.uae": "UAE Visa",
+        "visa.uaeDesc": "Visit & tourist visas for UAE.",
+        "visa.schengen": "Schengen",
+        "visa.schengenDesc": "European tourist visas, fast track.",
+        "visa.ukusa": "UK & USA",
+        "visa.ukusaDesc": "Consultation & complete file preparation.",
+        "visa.asia": "Asia Visas",
+        "visa.asiaDesc": "Turkey, Georgia, Thailand, Azerbaijan, China.",
+        "visa.saudi": "Saudi Tourist Visa",
+        "visa.saudiDesc": "Tourist visas for Saudi.",
+        "visa.maldives": "Maldives",
+        "visa.maldivesDesc": "Visa on arrival & permits.",
+        "about.title": "About Us",
+        "about.sub": "Since 2014, we've been helping travelers plan smooth trips",
+        "about.est": "Established in 2014",
+        "about.p1": "Tripesta Travel was founded in 2014 and has achieved strong success in the travel industry — from international packages to UAE activities, hotels, transport, and tourist visa services.",
+        "about.li1": "Tailor-made packages with trusted partners",
+        "about.li2": "Fast customer support & clear trip planning",
+        "about.li3": "Hotels, transfers, tours, and visas",
+        "about.achievements": "Achievements",
+        "about.ach1": "10,000+ happy travelers",
+        "about.ach2": "Partners with 70+ airlines & hotels",
+        "about.ach3": "98% visa success rate",
+        "about.ach4": "Multilingual team (Arabic, English, Filipino)",
+        "reviews.title": "Customer Reviews",
+        "reviews.sub": "Real service, real support – we care about your trip.",
+        "review.jasim": "Fast processing and professional service. I traveled to Georgia and it was amazing.",
+        "review.sarah": "Schengen visa in 5 days. Thank you Tripesta.",
+        "review.mohamed": "Turkey package was complete and hotels were excellent. Highly recommended.",
+        "review.razan": "Booked Maldives trip, everything was organized and easy. Professional staff.",
+        "review.client": "Loyal Tripesta customer, they always deliver the best.",
+        "review.clientName": "Tripesta Client",
+        "review.grace": "What an amazing experience! I really enjoyed my trip to Turkey. Smooth booking and great support.",
+        "contact.title": "Contact Us",
+        "contact.sub": "Send your request – we'll reply quickly with the best offers",
+        "contact.brand": "Tripesta Travel",
+        "contact.whLabel": "Phone / WhatsApp",
+        "contact.emailLabel": "Email",
+        "contact.locLabel": "Location",
+        "contact.locVal": "Ajman Free Zone - Ajman Media City",
+        "contact.whCta": "Chat on WhatsApp",
+        "contact.send": "Send Message",
+        "footer.brand": "Tripesta Travel",
+        "footer.rights": "All rights reserved.",
+        "footer.privacy": "Privacy",
+        "footer.terms": "Terms",
+        "service.package": "Tour Package",
+        "service.hotel": "Hotel",
+        "service.flight": "Flight",
+        "service.visa": "Visa",
+        "ph.name": "Your Name *",
+        "ph.email": "Your Email *",
+        "ph.destination": "Destination (e.g., Georgia)",
+        "ph.phone": "Your Phone",
+        "ph.message": "Your Message *"
+      },
+      ar: {
+        "nav.services": "الخدمات",
+        "nav.flights": "الطيران",
+        "nav.packages": "الباقات",
+        "nav.hotels": "الفنادق",
+        "nav.visa": "التأشيرات",
+        "nav.about": "من نحن",
+        "nav.reviews": "آراء العملاء",
+        "nav.contact": "اتصل بنا",
+        "nav.book": "احجز الآن",
+        "hero.badge": "شريكك المتكامل للسفر والسياحة",
+        "hero.title1": "اكتشف العالم مع",
+        "hero.brandWord": "تريبستا",
+        "hero.sub": "طيران • فنادق • تأشيرات سياحية • باقات • جولات — عروض حصرية ودعم سريع.",
+        "hero.cta1": "شاهد الباقات",
+        "hero.cta2": "اطلب عرض سعر",
+        "quick.title": "استفسار سريع",
+        "quick.send": "إرسال الطلب",
+        "quick.or": "أو واتساب:",
+        "services.title": "الخدمات",
+        "services.sub": "كل ما تحتاجه لرحلة متكاملة – طيران، فنادق، تأشيرات سياحية، باقات",
+        "services.flights": "حجوزات الطيران",
+        "services.flightsP": "أفضل الخيارات ومسارات ذكية وتذاكر مرنة.",
+        "services.hotels": "حجوزات الفنادق",
+        "services.hotelsP": "خيارات ممتازة – عائلي، فاخر أو اقتصادي.",
+        "services.visa": "التأشيرات السياحية",
+        "services.visaP": "تأشيرات سياحية لكل الوجهات بمتابعة دقيقة.",
+        "services.packages": "الباقات السياحية",
+        "services.packagesP": "باقات جاهزة وبرامج مخصصة حسب طلبك.",
+        "flights.title": "متخصصون في الطيران",
+        "flights.sub": "نوفر تذاكر طيران إلى أي مكان في العالم مع جميع الشركات بأرخص الأسعار",
+        "flights.destinations": "200+ وجهة حول العالم",
+        "flights.desc": "نعمل مع جميع الخطوط الجوية لنضمن لك أفضل سعر.",
+        "flights.flex": "تذاكر مرنة",
+        "flights.support": "دعم 24/7",
+        "flights.price": "أرخص الأسعار",
+        "packages.title": "الباقات السياحية",
+        "packages.sub": "جورجيا، تركيا، أذربيجان، بولندا، المالديف، تايلاند، السعودية (مكة والمدينة)",
+        "packages.whatsapp": "واتساب لتصميم باقتك الخاصة",
+        "package.georgia": "جورجيا إسكيب",
+        "package.georgiaDays": "5 أيام",
+        "package.georgiaDesc": "تبليسي + كازبيجي + جوداوري",
+        "package.turkey": "السحر التركي",
+        "package.turkeyDays": "7 أيام",
+        "package.turkeyDesc": "اسطنبول + كبادوكيا + باموكالي",
+        "package.azerbaijan": "أذربيجان",
+        "package.azerbaijanDays": "4 أيام",
+        "package.azerbaijanDesc": "باكو + قابالا + بحر قزوين",
+        "package.poland": "بولندا الكلاسيكية",
+        "package.polandDays": "6 أيام",
+        "package.polandDesc": "وارسو + كراكوف + أوشفيتز",
+        "package.maldives": "المالديف",
+        "package.maldivesDays": "7 أيام",
+        "package.maldivesDesc": "فيلا فوق الماء + منتجع 5 نجوم",
+        "package.thailand": "تايلاند",
+        "package.thailandDays": "8 أيام",
+        "package.thailandDesc": "بانكوك + بوكيت + شيانغ ماي",
+        "package.saudi": "السعودية",
+        "package.saudiDays": "5 أيام",
+        "package.saudiDesc": "مكة (زيارة)، المدينة، جدة",
+        "hotels.title": "الفنادق والإقامات",
+        "hotels.sub": "اختر من أفضل الفنادق حول العالم – عائلي، فاخر، اقتصادي",
+        "visa.title": "التأشيرات السياحية",
+        "visa.sub": "نقدم جميع أنواع التأشيرات السياحية حول العالم بنسبة نجاح عالية",
+        "visa.uae": "تأشيرة الإمارات",
+        "visa.uaeDesc": "تأشيرات زيارة وسياحة للإمارات.",
+        "visa.schengen": "شنغن",
+        "visa.schengenDesc": "تأشيرات أوروبا السياحية بمواعيد سريعة.",
+        "visa.ukusa": "بريطانيا وأمريكا",
+        "visa.ukusaDesc": "استشارات وملفات متكاملة للسياحة.",
+        "visa.asia": "تأشيرات آسيا",
+        "visa.asiaDesc": "تركيا، جورجيا، تايلاند، أذربيجان، الصين.",
+        "visa.saudi": "تأشيرة السعودية السياحية",
+        "visa.saudiDesc": "تأشيرات زيارة سياحية للمملكة.",
+        "visa.maldives": "المالديف",
+        "visa.maldivesDesc": "تأشيرة دخول وتصاريح خاصة.",
+        "about.title": "من نحن",
+        "about.sub": "منذ 2014 نساعد المسافرين على تحقيق رحلاتهم",
+        "about.est": "تأسسنا في 2014",
+        "about.p1": "تأسست تريبستا ترافيل عام 2014 وحققنا نجاحات قوية في عالم السياحة والسفر – من الباقات الخارجية إلى الأنشطة داخل الإمارات، بالإضافة إلى الفنادق والمواصلات وخدمات التأشيرات السياحية.",
+        "about.li1": "باقات مخصصة وشركاء موثوقون",
+        "about.li2": "دعم سريع وخطة رحلة واضحة",
+        "about.li3": "فنادق، تنقلات، جولات، وتأشيرات",
+        "about.achievements": "إنجازاتنا",
+        "about.ach1": "أكثر من 10,000 مسافر سعيد",
+        "about.ach2": "شركاء مع 70+ شركة طيران وفندق",
+        "about.ach3": "نسبة نجاح تأشيرات 98%",
+        "about.ach4": "فريق متعدد اللغات (عربي، إنجليزي، فلبيني)",
+        "reviews.title": "آراء العملاء",
+        "reviews.sub": "خدمة حقيقية ودعم فعلي – نهتم برحلتك.",
+        "review.jasim": "سرعة في الإنجاز وتعامل راقي. سافرت لجورجيا وكانت الرحلة رائعة.",
+        "review.sarah": "فيزا شنغن خلال 5 أيام. شكراً تريبستا.",
+        "review.mohamed": "باقة تركيا كانت متكاملة والفنادق ممتازة. أنصح بالتعامل معهم.",
+        "review.razan": "حجزت رحلة المالديف، كان كل شيء منظم وسهل. موظفين محترفين.",
+        "review.client": "عميل دائم لتريبستا، دائماً يقدمون الأفضل.",
+        "review.clientName": "عميل تريبستا",
+        "review.grace": "What an amazing experience! I really enjoyed my trip to Turkey. Smooth booking and great support.",
+        "contact.title": "اتصل بنا",
+        "contact.sub": "أرسل طلبك – وسنرد بأسرع وقت بأفضل العروض",
+        "contact.brand": "تريبستا ترافيل",
+        "contact.whLabel": "هاتف / واتساب",
+        "contact.emailLabel": "البريد الإلكتروني",
+        "contact.locLabel": "الموقع",
+        "contact.locVal": "Ajman Free Zone - Ajman Media City",
+        "contact.whCta": "تحدث على واتساب",
+        "contact.send": "إرسال الرسالة",
+        "footer.brand": "تريبستا ترافيل",
+        "footer.rights": "جميع الحقوق محفوظة.",
+        "footer.privacy": "الخصوصية",
+        "footer.terms": "الشروط",
+        "service.package": "باقة سياحية",
+        "service.hotel": "فندق",
+        "service.flight": "طيران",
+        "service.visa": "تأشيرة",
+        "ph.name": "الاسم *",
+        "ph.email": "البريد الإلكتروني *",
+        "ph.destination": "الوجهة (مثال: جورجيا)",
+        "ph.phone": "رقم الهاتف",
+        "ph.message": "رسالتك *"
       }
-      updateWALinks(currentLang);
+    };
+
+    // Apply language
+    function applyLang(lang) {
+      document.body.className = lang === 'ar' ? 'rtl' : '';
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      
+      // Update brand travel text
+      document.querySelector('.brand-travel').textContent = lang === 'ar' ? 'ترافيل' : 'Travel';
+      
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (dict[lang] && dict[lang][key]) {
+          if (el.tagName === 'OPTION') {
+            el.textContent = dict[lang][key];
+          } else {
+            // Preserve inner HTML (like icons) but replace text
+            const icon = el.querySelector('i');
+            if (icon) {
+              const iconHtml = icon.outerHTML;
+              el.innerHTML = dict[lang][key] + ' ' + iconHtml;
+            } else {
+              el.textContent = dict[lang][key];
+            }
+          }
+        }
+      });
+
+      document.querySelectorAll("[data-i18n-ph]").forEach(el => {
+        const key = el.getAttribute("data-i18n-ph");
+        if (dict[lang] && dict[lang][key]) el.setAttribute("placeholder", dict[lang][key]);
+      });
+
+      // Update toggle button
+      document.getElementById("langToggle").textContent = lang === 'ar' ? 'English' : 'عربي';
+      
+      // Update book now button icon direction
+      const bookBtn = document.querySelector('.btn-brand[href="#contact"]');
+      if (bookBtn) {
+        const icon = bookBtn.querySelector('i');
+        if (icon) {
+          icon.className = lang === 'ar' ? 'fa-solid fa-arrow-left me-1' : 'fa-solid fa-arrow-right ms-1';
+        }
+      }
+
+      updateWALinks(lang);
+    }
+
+    // Language toggle
+    document.getElementById("langToggle").addEventListener("click", function() {
+      const currentLang = document.documentElement.lang;
+      applyLang(currentLang === 'ar' ? 'en' : 'ar');
     });
-    updateWALinks("en");
+
+    // Initialize with English
+    applyLang('en');
+    updateWALinks('en');
   </script>
 </body>
 </html>
