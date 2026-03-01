@@ -1,29 +1,39 @@
-// ====== Tripesta MAIN JS (Full) ======
+// ====== Tripesta MAIN JS (محدث بالكامل) ======
 
-// Year
+// DOM ready
 document.addEventListener("DOMContentLoaded", () => {
+  // Year
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
-});
 
-// Navbar shrink
-const nav = document.getElementById("mainNav");
-window.addEventListener("scroll", () => {
-  if (!nav) return;
-  if (window.scrollY > 30) nav.classList.add("scrolled");
-  else nav.classList.remove("scrolled");
-});
+  // Navbar shrink
+  const nav = document.getElementById("mainNav");
+  window.addEventListener("scroll", () => {
+    if (!nav) return;
+    if (window.scrollY > 30) nav.classList.add("scrolled");
+    else nav.classList.remove("scrolled");
+  });
 
-// Hero slider
-const slides = Array.from(document.querySelectorAll("#heroSlider .hero-slide"));
-if (slides.length) {
-  let i = 0;
-  setInterval(() => {
-    slides[i].classList.remove("active");
-    i = (i + 1) % slides.length;
-    slides[i].classList.add("active");
-  }, 5000);
-}
+  // Hero slider
+  const slides = Array.from(document.querySelectorAll("#heroSlider .hero-slide"));
+  if (slides.length) {
+    let i = 0;
+    setInterval(() => {
+      slides[i].classList.remove("active");
+      i = (i + 1) % slides.length;
+      slides[i].classList.add("active");
+    }, 5000);
+  }
+
+  // ✅ إعادة تحميل GIF كل 2 ثانية للحفاظ على الحركة (حل مضمون)
+  const logo = document.querySelector('.main-logo');
+  if (logo) {
+    setInterval(() => {
+      const src = logo.src.split('?')[0];
+      logo.src = src + '?t=' + new Date().getTime();
+    }, 2000);
+  }
+});
 
 // WhatsApp numbers
 const WA1 = "971521774320";
@@ -41,15 +51,14 @@ function updateWALinks(lang) {
   const link1 = getWALink(WA1, lang);
   const link2 = getWALink(WA2, lang);
 
-  // Mapping: ids that should go to number 1 vs 2
+  // Mapping: all IDs
   const map = {
     whLink1: link1,
-    whContact1: link1,
-    whMainCta: link1,
-    whCtaPackages: link1,
-
     whLink2: link2,
+    whContact1: link1,
     whContact2: link2,
+    whMainCta: link1,
+    whCtaPackages: link1
   };
 
   Object.keys(map).forEach((id) => {
@@ -58,10 +67,9 @@ function updateWALinks(lang) {
   });
 }
 
-// Translation dictionary (minimal but complete for current page)
+// Translation dictionary (كامل)
 const dict = {
   en: {
-    // Nav
     "nav.services": "Services",
     "nav.flights": "Flights",
     "nav.packages": "Packages",
@@ -72,19 +80,16 @@ const dict = {
     "nav.contact": "Contact",
     "nav.book": "Book Now",
 
-    // Hero
     "hero.badge": "Your Complete Travel Partner",
     "hero.title1": "Explore the World with",
     "hero.sub": "Flights • Hotels • Tourist Visas • Packages • Tours — Best deals & fast support.",
     "hero.cta1": "View Packages",
     "hero.cta2": "Get a Quote",
 
-    // Quick
     "quick.title": "Quick Inquiry",
     "quick.send": "Send Request",
     "quick.or": "Or WhatsApp:",
 
-    // Sections
     "services.title": "Services",
     "services.sub": "Everything you need for a complete trip – Flights, Hotels, Tourist Visas, Packages",
     "services.flights": "Flight Booking",
@@ -105,7 +110,7 @@ const dict = {
     "flights.price": "Best prices",
 
     "packages.title": "Tour Packages",
-    "packages.sub": "Georgia, Turkey, Maldives, and more",
+    "packages.sub": "Georgia, Turkey, Azerbaijan, Poland, Maldives, Thailand, Saudi",
     "packages.whatsapp": "WhatsApp to customize your package",
     "package.georgia": "Georgia Escape",
     "package.georgiaDays": "5 days",
@@ -113,9 +118,21 @@ const dict = {
     "package.turkey": "Turkish Delight",
     "package.turkeyDays": "7 days",
     "package.turkeyDesc": "Istanbul + Cappadocia + Pamukkale",
+    "package.azerbaijan": "Azerbaijan",
+    "package.azerbaijanDays": "4 days",
+    "package.azerbaijanDesc": "Baku + Gabala + Caspian Sea",
+    "package.poland": "Poland Classic",
+    "package.polandDays": "6 days",
+    "package.polandDesc": "Warsaw + Krakow + Auschwitz",
     "package.maldives": "Maldives",
     "package.maldivesDays": "7 days",
     "package.maldivesDesc": "Overwater villa + 5* resort",
+    "package.thailand": "Thailand",
+    "package.thailandDays": "8 days",
+    "package.thailandDesc": "Bangkok + Phuket + Chiang Mai",
+    "package.saudi": "Saudi Arabia",
+    "package.saudiDays": "5 days",
+    "package.saudiDesc": "Makkah + Madinah + Jeddah",
 
     "hotels.title": "Hotels & Stays",
     "hotels.sub": "Choose from top hotels worldwide – family, luxury, budget",
@@ -128,6 +145,12 @@ const dict = {
     "visa.schengenDesc": "European tourist visas, fast track.",
     "visa.ukusa": "UK & USA",
     "visa.ukusaDesc": "Consultation & complete file preparation.",
+    "visa.asia": "Asia Visas",
+    "visa.asiaDesc": "Turkey, Georgia, Thailand, Azerbaijan, China.",
+    "visa.saudi": "Saudi Tourist Visa",
+    "visa.saudiDesc": "Tourist visas for Saudi.",
+    "visa.maldives": "Maldives",
+    "visa.maldivesDesc": "Visa on arrival & permits.",
 
     "about.title": "About Us",
     "about.sub": "Since 2014, we've been helping travelers plan smooth trips",
@@ -140,13 +163,17 @@ const dict = {
     "about.ach1": "10,000+ happy travelers",
     "about.ach2": "Partners with 70+ airlines & hotels",
     "about.ach3": "98% visa success rate",
-    "about.ach4": "Multilingual team",
+    "about.ach4": "Multilingual team (Arabic, English, Filipino)",
 
     "reviews.title": "Customer Reviews",
     "reviews.sub": "Real service, real support – we care about your trip.",
-    "review.one": "Fast processing and professional service.",
-    "review.two": "Schengen visa in 5 days. Thank you Tripesta.",
-    "review.three": "Turkey package was complete and hotels were excellent.",
+    "review.jasim": "Fast processing and professional service. I traveled to Georgia and it was amazing.",
+    "review.sarah": "Schengen visa in 5 days. Thank you Tripesta.",
+    "review.mohamed": "Turkey package was complete and hotels were excellent. Highly recommended.",
+    "review.razan": "Booked Maldives trip, everything was organized and easy. Professional staff.",
+    "review.client": "Loyal Tripesta customer, they always deliver the best.",
+    "review.clientName": "Tripesta Client",
+    "review.grace": "What an amazing experience! I really enjoyed my trip to Turkey. Smooth booking and great support.",
 
     "contact.title": "Contact Us",
     "contact.sub": "Send your request – we'll reply quickly with the best offers",
@@ -168,7 +195,6 @@ const dict = {
     "service.flight": "Flight",
     "service.visa": "Visa",
 
-    // Placeholders
     "ph.name": "Your Name *",
     "ph.email": "Your Email *",
     "ph.destination": "Destination (e.g., Georgia)",
@@ -177,7 +203,6 @@ const dict = {
   },
 
   ar: {
-    // Nav
     "nav.services": "الخدمات",
     "nav.flights": "الطيران",
     "nav.packages": "الباقات",
@@ -188,19 +213,16 @@ const dict = {
     "nav.contact": "اتصل بنا",
     "nav.book": "احجز الآن",
 
-    // Hero
     "hero.badge": "شريكك المتكامل للسفر والسياحة",
     "hero.title1": "اكتشف العالم مع",
     "hero.sub": "طيران • فنادق • تأشيرات سياحية • باقات • جولات — عروض حصرية ودعم سريع.",
     "hero.cta1": "شاهد الباقات",
     "hero.cta2": "اطلب عرض سعر",
 
-    // Quick
     "quick.title": "استفسار سريع",
     "quick.send": "إرسال الطلب",
     "quick.or": "أو واتساب:",
 
-    // Sections
     "services.title": "الخدمات",
     "services.sub": "كل ما تحتاجه لرحلة متكاملة – طيران، فنادق، تأشيرات سياحية، باقات",
     "services.flights": "حجوزات الطيران",
@@ -221,7 +243,7 @@ const dict = {
     "flights.price": "أفضل الأسعار",
 
     "packages.title": "الباقات السياحية",
-    "packages.sub": "جورجيا، تركيا، المالديف وأكثر",
+    "packages.sub": "جورجيا، تركيا، أذربيجان، بولندا، المالديف، تايلاند، السعودية",
     "packages.whatsapp": "واتساب لتصميم باقتك الخاصة",
     "package.georgia": "جورجيا إسكيب",
     "package.georgiaDays": "5 أيام",
@@ -229,9 +251,21 @@ const dict = {
     "package.turkey": "السحر التركي",
     "package.turkeyDays": "7 أيام",
     "package.turkeyDesc": "اسطنبول + كبادوكيا + باموكالي",
+    "package.azerbaijan": "أذربيجان",
+    "package.azerbaijanDays": "4 أيام",
+    "package.azerbaijanDesc": "باكو + قابالا + بحر قزوين",
+    "package.poland": "بولندا الكلاسيكية",
+    "package.polandDays": "6 أيام",
+    "package.polandDesc": "وارسو + كراكوف + أوشفيتز",
     "package.maldives": "المالديف",
     "package.maldivesDays": "7 أيام",
     "package.maldivesDesc": "فيلا فوق الماء + منتجع 5 نجوم",
+    "package.thailand": "تايلاند",
+    "package.thailandDays": "8 أيام",
+    "package.thailandDesc": "بانكوك + بوكيت + شيانغ ماي",
+    "package.saudi": "السعودية",
+    "package.saudiDays": "5 أيام",
+    "package.saudiDesc": "مكة + المدينة + جدة",
 
     "hotels.title": "الفنادق والإقامات",
     "hotels.sub": "اختر من أفضل الفنادق حول العالم – عائلي، فاخر، اقتصادي",
@@ -244,6 +278,12 @@ const dict = {
     "visa.schengenDesc": "تأشيرات أوروبا السياحية بمواعيد سريعة.",
     "visa.ukusa": "بريطانيا وأمريكا",
     "visa.ukusaDesc": "استشارات وتجهيز ملف كامل.",
+    "visa.asia": "تأشيرات آسيا",
+    "visa.asiaDesc": "تركيا، جورجيا، تايلاند، أذربيجان، الصين.",
+    "visa.saudi": "تأشيرة السعودية السياحية",
+    "visa.saudiDesc": "تأشيرات زيارة سياحية للمملكة.",
+    "visa.maldives": "المالديف",
+    "visa.maldivesDesc": "تأشيرة دخول وتصاريح خاصة.",
 
     "about.title": "من نحن",
     "about.sub": "منذ 2014 نساعد المسافرين على رحلات سهلة",
@@ -256,13 +296,17 @@ const dict = {
     "about.ach1": "أكثر من 10,000 مسافر سعيد",
     "about.ach2": "شركاء مع 70+ شركة طيران وفندق",
     "about.ach3": "نسبة نجاح تأشيرات 98%",
-    "about.ach4": "فريق متعدد اللغات",
+    "about.ach4": "فريق متعدد اللغات (عربي، إنجليزي، فلبيني)",
 
     "reviews.title": "آراء العملاء",
     "reviews.sub": "خدمة حقيقية ودعم فعلي – نهتم برحلتك.",
-    "review.one": "سرعة في الإنجاز وتعامل راقي.",
-    "review.two": "فيزا شنغن خلال 5 أيام. شكراً تريبستا.",
-    "review.three": "باقة تركيا كانت متكاملة والفنادق ممتازة.",
+    "review.jasim": "سرعة في الإنجاز وتعامل راقي. سافرت لجورجيا وكانت الرحلة رائعة.",
+    "review.sarah": "فيزا شنغن خلال 5 أيام. شكراً تريبستا.",
+    "review.mohamed": "باقة تركيا كانت متكاملة والفنادق ممتازة. أنصح بالتعامل معهم.",
+    "review.razan": "حجزت رحلة المالديف، كان كل شيء منظم وسهل. موظفين محترفين.",
+    "review.client": "عميل دائم لتريبستا، دائماً يقدمون الأفضل.",
+    "review.clientName": "عميل تريبستا",
+    "review.grace": "تجربة رائعة! استمتعت جداً برحلتي إلى تركيا. حجز سلس ودعم ممتاز.",
 
     "contact.title": "اتصل بنا",
     "contact.sub": "أرسل طلبك – وسنرد بأسرع وقت بأفضل العروض",
@@ -284,7 +328,6 @@ const dict = {
     "service.flight": "طيران",
     "service.visa": "تأشيرة",
 
-    // Placeholders
     "ph.name": "الاسم *",
     "ph.email": "البريد الإلكتروني *",
     "ph.destination": "الوجهة (مثال: جورجيا)",
@@ -293,24 +336,22 @@ const dict = {
   },
 };
 
-// Apply language (keeps icons)
+// Apply language function
 function applyLang(lang) {
   document.body.className = lang === "ar" ? "rtl" : "";
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
 
-  // Translate text nodes
+  // Translate text elements
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
     const val = dict[lang]?.[key];
     if (!val) return;
 
-    // Keep icons if exist
     const icon = el.querySelector("i");
     if (icon) {
       const iconHtml = icon.outerHTML;
-      el.innerHTML = "";
-      el.textContent = val + " ";
+      el.innerHTML = val + " ";
       el.insertAdjacentHTML("beforeend", iconHtml);
     } else {
       el.textContent = val;
@@ -321,27 +362,37 @@ function applyLang(lang) {
   document.querySelectorAll("[data-i18n-ph]").forEach((el) => {
     const key = el.getAttribute("data-i18n-ph");
     const val = dict[lang]?.[key];
-    if (!val) return;
-    el.setAttribute("placeholder", val);
+    if (val) el.setAttribute("placeholder", val);
   });
 
-  // Toggle button text
+  // Update toggle button
   const toggleBtn = document.getElementById("langToggle");
   if (toggleBtn) toggleBtn.textContent = lang === "ar" ? "English" : "عربي";
 
-  // Update WhatsApp
+  // Update book icon direction
+  const bookBtn = document.querySelector('.btn-brand[href="#contact"] i');
+  if (bookBtn) {
+    bookBtn.className = lang === "ar" ? "fa-solid fa-arrow-left ms-1" : "fa-solid fa-arrow-right ms-1";
+  }
+
+  // Update WhatsApp links
   updateWALinks(lang);
+  
+  // Save preference
+  localStorage.setItem("tripesta_lang", lang);
 }
 
-// Toggle button
-const langToggle = document.getElementById("langToggle");
-if (langToggle) {
-  langToggle.addEventListener("click", () => {
-    const current = document.documentElement.lang || "en";
-    applyLang(current === "ar" ? "en" : "ar");
-  });
-}
-
-// Init
-applyLang("en");
-updateWALinks("en");
+// Initialize
+document.addEventListener("DOMContentLoaded", () => {
+  const savedLang = localStorage.getItem("tripesta_lang") || "en";
+  applyLang(savedLang);
+  
+  // Toggle button click
+  const langToggle = document.getElementById("langToggle");
+  if (langToggle) {
+    langToggle.addEventListener("click", () => {
+      const current = document.documentElement.lang || "en";
+      applyLang(current === "ar" ? "en" : "ar");
+    });
+  }
+});
