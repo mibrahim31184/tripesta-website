@@ -78,19 +78,47 @@
       margin: 0;
     }
 
-    /* LOGO - Animated GIF شفاف تماماً */
+    /* LOGO - مكبر جداً 220px */
     .main-logo {
-      height: 100px;
-      width: auto;
-      max-width: 280px;
+      height: 220px !important;
+      width: auto !important;
+      max-width: 450px !important;
       object-fit: contain;
       display: block;
       background: transparent !important;
       filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
     }
 
+    /* للشاشات المتوسطة */
+    @media (max-width: 1200px) {
+      .main-logo {
+        height: 180px !important;
+        max-width: 350px !important;
+      }
+    }
+
+    /* للتابلت */
+    @media (max-width: 992px) {
+      .main-logo {
+        height: 140px !important;
+        max-width: 280px !important;
+      }
+    }
+
+    /* للموبايل */
     @media (max-width: 768px) {
-      .main-logo { height: 70px; }
+      .main-logo {
+        height: 110px !important;
+        max-width: 220px !important;
+      }
+    }
+
+    /* للموبايل الصغير */
+    @media (max-width: 576px) {
+      .main-logo {
+        height: 90px !important;
+        max-width: 180px !important;
+      }
     }
 
     /* Buttons */
@@ -149,7 +177,7 @@
       align-items: center;
       overflow: hidden;
       background: #0b1220;
-      padding-top: 100px;
+      padding-top: 120px; /* زيادة المسافة عشان اللوجو الكبير */
     }
 
     .hero-overlay {
@@ -450,7 +478,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top glass-nav" id="mainNav">
     <div class="container">
 
-      <!-- Logo (Animated GIF) - شفاف ومتحرك -->
+      <!-- Logo (Animated GIF) - مكبر جداً 220px -->
       <a class="navbar-brand brand-wrap" href="#page-top" aria-label="تريبستا">
         <img class="main-logo" src="assets/brand/logo-animated.gif" alt="تريبستا" id="animatedLogo">
       </a>
@@ -490,7 +518,7 @@
     </div>
   </nav>
 
-  <!-- HERO - مطابق للصورة تماماً -->
+  <!-- HERO -->
   <header class="hero" id="page-top">
     <div class="hero-overlay"></div>
 
@@ -549,7 +577,7 @@
                 إرسال الطلب <i class="fa-regular fa-paper-plane ms-2"></i>
               </button>
 
-              <!-- WhatsApp numbers as buttons - حسب الصورة -->
+              <!-- WhatsApp numbers as buttons -->
               <div class="whatsapp-numbers">
                 <a href="#" id="whLink1" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> +971 50 366 1905</a>
                 <a href="#" id="whLink2" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> +971 52 177 4320</a>
@@ -562,17 +590,6 @@
       </div>
     </div>
   </header>
-
-  <!-- Quick Service Badges (اختياري) -->
-  <div class="container py-4">
-    <div class="row justify-content-center g-3">
-      <div class="col-auto"><span class="badge-pill"><i class="fa-solid fa-plane me-2"></i> طيران</span></div>
-      <div class="col-auto"><span class="badge-pill"><i class="fa-solid fa-hotel me-2"></i> فنادق</span></div>
-      <div class="col-auto"><span class="badge-pill"><i class="fa-solid fa-passport me-2"></i> تأشيرات</span></div>
-      <div class="col-auto"><span class="badge-pill"><i class="fa-solid fa-suitcase-rolling me-2"></i> باقات</span></div>
-      <div class="col-auto"><span class="badge-pill"><i class="fa-solid fa-umbrella-beach me-2"></i> جولات</span></div>
-    </div>
-  </div>
 
   <!-- SERVICES SECTION -->
   <section class="section section-dark py-5" id="services">
