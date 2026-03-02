@@ -62,7 +62,7 @@ body.rtl {
 }
 
 @media (max-width: 768px) {
-  .main-logo { height: 70px; }
+  .main-logo { height: 100px; }
 }
 
 /* Buttons */
